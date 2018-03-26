@@ -1,6 +1,6 @@
 {
   "name": "dream_moto",
-  "app_id": "",
+  "app_id": "058c8b2f",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

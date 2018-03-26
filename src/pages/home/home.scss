@@ -1,8 +1,12 @@
 page-home {
+  ion-icon{
+    color: #A07B13;
+  }
     ion-content {
       padding-top: 40px;
       padding-bottom: 40px;
-      background-image: url(../assets/imgs/fondo2.jpg);
+      background-image: url(../assets/imgs/lineasamarillas.png), url(../assets/imgs/fondo2.jpg);
+      // background-image: url(../assets/imgs/fondo2.jpg);
     //   background-size: 20%;
       background-position: center center;
       background-repeat: no-repeat;
@@ -55,7 +59,7 @@ page-home {
         }
         .splash-logo {
           margin: auto;
-          background: url('../assets/imgs/logo.png') no-repeat transparent;
+          background: url('../assets/imgs/logo1.png') no-repeat transparent;
           filter: brightness(0.85);
           background-size: 100%;
           width: 250px;
