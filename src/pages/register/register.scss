@@ -2,18 +2,18 @@ page-register {
     ion-icon{
         color: #A07B13;
     }
-    ion-content{
-        .header {
-            position: relative;
-            background: url('../assets/imgs/principal.png') no-repeat transparent;
-            background-size: cover;
-            position: relative;
-            z-index: 2;
-            margin-top: -64px;
-            text-align: center;
-            color: #fff
-          }
-    }
+    ion-content {
+        padding-top: 0px;
+        // padding-bottom: 40px;
+        background-image: url(../assets/imgs/moto2.png), url(../assets/imgs/fondo2.jpg);
+        // background-image: url(../assets/imgs/fondo2.jpg);
+      //   background-size: 20%;
+        background-position: center bottom,center center;
+        background-repeat: no-repeat;
+        background-attachment: absolute;
+        background-size: contain, cover;
+        // background-position-x: 50%;
+      }
       
       
 }

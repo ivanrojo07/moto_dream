@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+
+import { Usuario } from '../../models/usuario';
 
 /**
  * Generated class for the RegisterPage page.
@@ -15,11 +17,40 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public errorMessage: string;
+  public usuario: Usuario;
+  public confirm_pass:string;
+  public confirm:boolean;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+    this.usuario = new Usuario(null,'','','','','','','');
+    this.confirm_pass = '';
+    this.confirm = false;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+
+  public onSubmit(){
+    console.log(this.usuario+this.confirm_pass);
+    if (this.usuario.password != this.confirm_pass) {
+      console.log("NO-coinciden");
+      this.alert('Error','Las contraseñas introducidas no coinciden, vuelve a verificarlas');
+      this.usuario = new Usuario(null,'','','','','','','');
+      this.confirm_pass ='';
+    } else {
+      this.alert('Success', "coinciden contraseñas"+this.usuario.name);
+    }
+  }
+
+  public alert(titulo:string, contenido:string ){
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: contenido,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

@@ -11,7 +11,7 @@
         <ion-icon md="md-menu" ios="ios-menu"></ion-icon>
         <!-- <ion-icon></ion-icon> -->
       </button>
-    <ion-title>Register</ion-title>
+    <ion-title>Registro</ion-title>
     <ion-buttons end>
         <button ion-button clear end>
           <ion-icon><img src="../../assets/imgs/dibujoarriba.png" alt="dream moto" width="25" height="25"></ion-icon>
@@ -23,7 +23,48 @@
 
 
 <ion-content padding>
-    <div class="header">
-      HOLA
-    </div>
+    <ion-card>
+      <ion-card-header>
+        Registrate con nosotros:
+      </ion-card-header>
+      <form #formRegister="ngForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label floating>Nombre de usuario:</ion-label>
+          <ion-input type="text" name="username" #username="ngModel" [(ngModel)]="usuario.username" required autofocus></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Nombre completo:</ion-label>
+          <ion-input type="text" name="name" #name="ngModel" [(ngModel)]="usuario.name" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Apellido Paterno:</ion-label>
+          <ion-input type="text" name="appaterno" #appaterno="ngModel" [(ngModel)]="usuario.appaterno" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Apellido Materno:</ion-label>
+          <ion-input type="text" name="apmaterno" #apmaterno="ngModel" [(ngModel)]="usuario.apmaterno" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Correo electronico:</ion-label>
+          <ion-input type="mail" name="email" #email="ngModel" [(ngModel)]="usuario.email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z_-]{3,}([.]{1}[a-zA-Z_-]{2,}|[.]{1}[a-zA-Z_-]{2,}[.]{1}[a-zA-Z_-]{2,})" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Telefono móvil:</ion-label>
+          <ion-input type="text" name="telefono" #telefono="ngModel" [(ngModel)]="usuario.telefono" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Contraseña</ion-label>
+          <ion-input type="password" name="password" #password="ngModel" [(ngModel)]="usuario.password" required autofocus></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Repetir Contraseña</ion-label>
+          <ion-input type="password" name="confirm_pass"  [(ngModel)]="confirm_pass" required autofocus></ion-input>
+        </ion-item>
+        <div padding>
+          <button ion-button color="primary" type="submit" [disabled]="!formRegister.form.valid" block>Entrar</button>
+        </div>
+        
+      </form>
+    </ion-card>
 </ion-content>
