@@ -29,8 +29,8 @@
     </ion-card-header>
     <form #formLogin="ngForm" (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label floating>Correo Electronico</ion-label>
-      <ion-input type="email" name="email" #email="ngModel" [(ngModel)]="usuario.email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z_-]{3,}([.]{1}[a-zA-Z_-]{2,}|[.]{1}[a-zA-Z_-]{2,}[.]{1}[a-zA-Z_-]{2,})" required autofocus></ion-input>
+      <ion-label floating>Correo Electronico/Username</ion-label>
+      <ion-input type="text" name="email" #email="ngModel" [(ngModel)]="usuario.email" required autofocus></ion-input>
     </ion-item>
   
     <ion-item>

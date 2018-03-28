@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 
 import { Usuario } from '../../models/usuario';
 import { UsuarioProvider } from '../../providers/providers';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the RegisterPage page.
@@ -45,7 +46,7 @@ export class RegisterPage {
     else {
       // console.log("entra al else, coincide");
       if (this.usuario.password == this.confirm_pass) {
-        this.alert('Success', "coinciden contraseñas" + this.usuario.name);
+        // this.alert('Success', "coinciden contraseñas " + this.usuario.name);
         this._usuarioService.addUsuario(this.usuario).subscribe(
           result => {
             if (!result.usuario) {
@@ -57,7 +58,7 @@ export class RegisterPage {
 
                 this.usuario = result.usuario;
                 this.alert("Success", "Usuario creado correctamente. Por favor " + this.usuario.name + " " + this.usuario.appaterno + " introduce tus credenciales.");
-                this.navCtrl.setRoot('HomePage');
+                this.navCtrl.setRoot(HomePage);
               }
               else {
                 console.log(result);
@@ -65,7 +66,7 @@ export class RegisterPage {
             }
           },
           error => {
-            this.errorMessage = <any>error;
+            this.errorMessage = JSON.stringify(error);
             if (this.errorMessage != null) {
               console.log(this.errorMessage);
               this.alert('Error', 'Problemas con el servidor');
