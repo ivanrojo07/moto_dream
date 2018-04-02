@@ -52,6 +52,11 @@ export class LoginPage implements OnInit {
         }
         else{
           this.alert('Bienvenido', 'Sessión exitosa');
+          this._usuarioService.getToken(result).subscribe(res=>{
+
+          },err=>{
+
+          });
           console.log(result);
           this.navCtrl.push(HomePage);
         }
