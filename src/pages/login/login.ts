@@ -4,6 +4,9 @@ import { Usuario } from '../../models/usuario';
 import { RegisterPage } from '../register/register';
 import { UsuarioProvider } from '../../providers/providers';
 import { HomePage } from '../home/home';
+import { Storage } from '@ionic/storage';
+import { UserPage } from '../user/user';
+
 
 /**
  * Generated class for the LoginPage page.
@@ -24,7 +27,11 @@ export class LoginPage implements OnInit {
   public usuario: Usuario;
   public pushPage: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private _usuarioService:UsuarioProvider, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    private _usuarioService:UsuarioProvider, 
+    public alertCtrl: AlertController, 
+    private storage: Storage) {
 
     this.pushPage = "HomePage";
     this.usuario = new Usuario(null,'','','','','','','');
@@ -47,18 +54,28 @@ export class LoginPage implements OnInit {
       else {
         if(result.failed){
           this.alert('Error', result.failed);
-          console.log(result);
+          
           this.ngOnInit();
         }
         else{
-          this.alert('Bienvenido', 'Sessión exitosa');
-          this._usuarioService.getToken(result).subscribe(res=>{
-
+          console.log("Hecho :"+JSON.stringify(result));
+          this._usuarioService.getToken(result,this.usuario.password).subscribe(res=>{
+            this.alert('Bienvenido', 'Sessión exitosa');
+            
+            console.log("TOKEN: "+JSON.stringify(res.access_token));
+            this.storage.set("access_token",JSON.stringify(res.access_token));
+            this.storage.set("refresh_token",JSON.stringify(res.refresh_token));
+            
+            this.navCtrl.setRoot(UserPage);
+            this.storage.get("access_token").then((val) => {
+              console.log('Your access_token is '+ val);
+            });
           },err=>{
-
+            console.log("Error: "+err);
+            this.alert("Error", JSON.stringify(err.failed));
           });
-          console.log(result);
-          this.navCtrl.push(HomePage);
+          // console.log(result);
+          
         }
         // console.log(result.success);
       }

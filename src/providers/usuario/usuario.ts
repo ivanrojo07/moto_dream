@@ -17,6 +17,8 @@ export class UsuarioProvider {
   public url: string;
   public oauthUrl: string;
 
+  public usuario: Usuario;
+
   constructor(public _http: Http) {
     console.log('Hello UsuarioProvider Provider');
     this.url = 'http://localhost/dream_moto_backend/public/api/';
@@ -26,17 +28,18 @@ export class UsuarioProvider {
   login(usuario: Usuario) {
     let json = JSON.stringify(usuario);
     let params = json;
-    console.log(params);
+    // console.log(params);
     let headers = new Headers({ 'Content-Type' : 'application/json'});
 
 
     return this._http.post(this.url + 'login', params, { headers: headers }).map(res => res.json());
 
   }
-  getToken(usuario: Usuario){
+  getToken(usuario: Usuario, password: string){
     let json = JSON.stringify(usuario);
     let params = json;
-    console.log(params);
+    let user = JSON.parse(params);
+    // console.log("Params: "+params);
     
     var headers = new Headers({
       "Content-Type": "application/json",
@@ -47,10 +50,11 @@ export class UsuarioProvider {
         grant_type: "password",
         client_id: 2,
         client_secret: "BoEb7ne6IBWTJiHSsg64KAd7NQs7AmFNKvx46NnP",
-        username: usuario.email,
-        password: usuario.password,
+        username: user.usuario.email,
+        password: password,
         scope: ""
     }
+    // console.log("postdata: "+JSON.stringify(postData));
 
     return this._http.post(this.oauthUrl, JSON.stringify(postData), {
         headers: headers
