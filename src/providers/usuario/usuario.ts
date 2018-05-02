@@ -21,6 +21,8 @@ export class UsuarioProvider {
 
   constructor(public _http: Http) {
     console.log('Hello UsuarioProvider Provider');
+    // this.url = 'http://byw.from-tn.com/motodream/api/';
+    // this.oauthUrl = 'http://byw.from-tn.com/motodream/oauth/token';
     this.url = 'http://localhost/dream_moto_backend/public/api/';
     this.oauthUrl = 'http://localhost/dream_moto_backend/public/oauth/token';
   }
@@ -29,7 +31,10 @@ export class UsuarioProvider {
     let json = JSON.stringify(usuario);
     let params = json;
     // console.log(params);
-    let headers = new Headers({ 'Content-Type' : 'application/json'});
+    let headers = new Headers({  
+      "Content-Type": "application/json",
+      // "Accept": "application/json"
+     });
 
 
     return this._http.post(this.url + 'login', params, { headers: headers }).map(res => res.json());
@@ -50,6 +55,7 @@ export class UsuarioProvider {
         grant_type: "password",
         client_id: 2,
         client_secret: "BoEb7ne6IBWTJiHSsg64KAd7NQs7AmFNKvx46NnP",
+        // client_secret: "IA3760dRZm4LN6tY47H9anfKK5DHKfsQrVX4NDcX",
         username: user.usuario.email,
         password: password,
         scope: ""
@@ -70,6 +76,17 @@ export class UsuarioProvider {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     console.log(params);
     return this._http.post(this.url + 'users', params, { headers: headers }).map(res => res.json());
+  }
+
+  getUsuario(access_token:string){
+    let headers = new Headers({
+      "Content-Type": "application/json",
+      "Cache-Control" : "no-cache",
+      "Accept": "application/json",
+      "Authorization" : 'Bearer '+JSON.parse(access_token)
+    });
+    // console.log(headers);
+    return this._http.get(this.url+'user',{ headers: headers}).map(res => res.json());
   }
 
 }

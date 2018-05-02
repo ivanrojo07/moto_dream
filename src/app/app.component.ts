@@ -7,8 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
-import { Storage } from '@ionic/storage';
 import { UserPage } from '../pages/user/user';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -18,33 +18,36 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any;
-  access_token: string;
+  access_token: string ="";
 
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage) {
-
+  
     this.storage.get("access_token").then((val)=>{
+      console.log("TOKEN: "+val);
       this.access_token = val;
+      if(this.access_token == null || this.access_token == "" ){
+        this.rootPage = HomePage;
+        this.pages = [
+          { title: 'Home', component: HomePage },
+          { title: 'List', component: ListPage },
+          { title: 'Registrate', component:RegisterPage},
+          { title: 'Inicia sesión', component:LoginPage},
+        ];
+        console.log(this.access_token);
+      }
+      else{
+        console.log(this.access_token);
+        this.rootPage = UserPage;
+        this.pages = [
+          { title: 'Home', component: UserPage },
+          { title: 'List', component: ListPage },
+          
+        ];
+      }
     });
-    if(this.access_token == null || this.access_token == "" ){
-      this.rootPage = HomePage;
-      this.pages = [
-        { title: 'Home', component: HomePage },
-        { title: 'List', component: ListPage },
-        { title: 'Registrate', component:RegisterPage},
-        { title: 'Inicia sesión', component:LoginPage},
-      ];
-    }
-    else{
-      console.log(this.access_token);
-      this.rootPage = UserPage;
-      this.pages = [
-        { title: 'Home', component: UserPage },
-        { title: 'List', component: ListPage },
-        
-      ];
-    }
+    
     this.initializeApp();
 
     // // used for an example of ngFor and navigation

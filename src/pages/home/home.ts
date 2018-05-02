@@ -10,7 +10,6 @@ import { LoginPage } from '../login/login';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-
   }
   register(){
     this.navCtrl.push(RegisterPage);
