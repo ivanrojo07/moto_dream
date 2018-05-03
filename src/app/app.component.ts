@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, DoCheck } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -14,7 +14,7 @@ import { Storage } from '@ionic/storage';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp implements DoCheck {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any;
@@ -24,6 +24,7 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage) {
   
+    
     this.storage.get("access_token").then((val)=>{
       console.log("TOKEN: "+val);
       this.access_token = val;
@@ -58,6 +59,33 @@ export class MyApp {
     //   { title: 'Inicia sesión', component:LoginPage},
     // ];
 
+  }
+  
+  ngDoCheck(){
+    this.storage.get("access_token").then((val)=>{
+      console.log("TOKEN: "+val);
+      this.access_token = val;
+      if(this.access_token == null || this.access_token == "" ){
+        this.rootPage = HomePage;
+        this.pages = [
+          { title: 'Home', component: HomePage },
+          { title: 'List', component: ListPage },
+          { title: 'Registrate', component:RegisterPage},
+          { title: 'Inicia sesión', component:LoginPage},
+        ];
+        console.log(this.access_token);
+      }
+      else{
+        console.log(this.access_token);
+        this.rootPage = UserPage;
+        this.pages = [
+          { title: 'Home', component: UserPage },
+          { title: 'List', component: ListPage },
+          
+        ];
+      }
+    });
+    
   }
 
   initializeApp() {
