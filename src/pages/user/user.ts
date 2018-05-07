@@ -51,7 +51,7 @@ export class UserPage {
 
       });
       }
-      console.log(this.usuario);
+      console.log("USUARIO"+this.usuario);
     });
     
   }

@@ -32,6 +32,7 @@
       <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
         {{p.title}}
       </button>
+      <button ion-item menuClose (click)="logout()">Salir</button>
     </ion-list>
   </ion-content>
 </ion-menu>

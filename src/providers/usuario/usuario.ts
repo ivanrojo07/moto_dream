@@ -112,4 +112,12 @@ export class UsuarioProvider {
     });
   }
 
+  logout():void {
+    this.storage.remove(this.HAS_LOGGED_IN);
+    // this.storage.remove('username');
+    this.storage.remove('access_token');
+    this.storage.remove('refresh_token');
+    this.events.publish('user:logout');
+  };
+
 }

@@ -52,6 +52,7 @@ export class MyApp {
   authenticated: Array<{title: string, component: any}>;
 
   constructor(
+    
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen, 
@@ -127,5 +128,11 @@ export class MyApp {
     
     this.nav.setRoot(page.component);
     
+  }
+
+  logout(){
+    this._usuarioService.logout();
+    this.rootPage = HomePage;
+    this.nav.setRoot(HomePage);
   }
 }
