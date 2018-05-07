@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Usuario } from '../../models/usuario';
 import { UsuarioProvider } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
+import { ListPage } from '../list/list';
 /**
  * Generated class for the UserPage page.
  *
@@ -24,7 +25,7 @@ export class UserPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private _usuarioService: UsuarioProvider,
-    private storage: Storage
+    private storage: Storage,
   ) {
     this.usuario = new Usuario(null,'','','','','','','');
   }
@@ -38,7 +39,7 @@ export class UserPage {
       }
       else{
         // console.log(this.access_token);
-      this._usuarioService.getUsuario(this.access_token).subscribe(result=>{
+        this._usuarioService.getUsuario(this.access_token).subscribe(result=>{
         this.usuario.id = result.id;
         this.usuario.username = result.username;
         this.usuario.name = result.name;

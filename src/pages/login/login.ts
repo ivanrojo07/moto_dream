@@ -26,6 +26,7 @@ export class LoginPage implements OnInit {
   public errorMessage: string;
   public usuario: Usuario;
   public pushPage: any;
+  HAS_LOGGED_IN = 'hasLoggedIn';
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -63,8 +64,11 @@ export class LoginPage implements OnInit {
             this.alert('Bienvenido', 'Sessión exitosa');
             
             console.log("TOKEN: "+JSON.stringify(res.access_token));
-            this.storage.set("access_token",JSON.stringify(res.access_token));
-            this.storage.set("refresh_token",JSON.stringify(res.refresh_token));
+            this._usuarioService.loginData(res.access_token,res.refresh_token);
+            // this.storage.set("access_token",JSON.stringify(res.access_token));
+            // this.storage.set("refresh_token",JSON.stringify(res.refresh_token));
+            // this.storage.set(this.HAS_LOGGED_IN, true);
+            
             
             this.navCtrl.setRoot(UserPage);
             this.storage.get("access_token").then((val) => {

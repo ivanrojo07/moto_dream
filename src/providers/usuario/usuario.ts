@@ -5,6 +5,10 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Usuario } from '../../models/usuario';
 
+import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
+
+
 /*
   Generated class for the UsuarioProvider provider.
 
@@ -19,7 +23,14 @@ export class UsuarioProvider {
 
   public usuario: Usuario;
 
-  constructor(public _http: Http) {
+  HAS_LOGGED_IN = 'hasLoggedIn';
+
+
+  constructor(
+    public _http: Http, 
+    public storage: Storage,
+    public events: Events,
+  ) {
     console.log('Hello UsuarioProvider Provider');
     this.url = 'http://byw.from-tn.com/motodream/api/';
     this.oauthUrl = 'http://byw.from-tn.com/motodream/oauth/token';
@@ -68,6 +79,12 @@ export class UsuarioProvider {
         .map((res: Response) => res.json());
   }
 
+  loginData(token: string,refresh:string): void {
+    this.storage.set("access_token",JSON.stringify(token));
+    this.storage.set("refresh_token",JSON.stringify(refresh));
+    this.storage.set(this.HAS_LOGGED_IN, true);
+    this.events.publish('user:login');
+  };
 
   addUsuario(usuario: Usuario) {
     let json = JSON.stringify(usuario);
@@ -87,6 +104,12 @@ export class UsuarioProvider {
     });
     // console.log(headers);
     return this._http.get(this.url+'user',{ headers: headers}).map(res => res.json());
+  }
+
+  estaLogeado() : Promise <boolean>{
+    return this.storage.get(this.HAS_LOGGED_IN).then((value)=>{
+      return value === true;
+    });
   }
 
 }
