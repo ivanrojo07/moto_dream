@@ -84,7 +84,7 @@ export class UsuarioProvider {
     this.storage.set("refresh_token",JSON.stringify(refresh));
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.events.publish('user:login');
-  };
+  }
 
   addUsuario(usuario: Usuario) {
     let json = JSON.stringify(usuario);
