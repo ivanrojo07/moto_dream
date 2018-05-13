@@ -13,6 +13,8 @@ import { Storage } from '@ionic/storage';
 
 import { UsuarioProvider } from '../providers/providers';
 import { SettingPage } from '../pages/setting/setting';
+import { AboutPage } from '../pages/about/about';
+import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 
 
 
@@ -38,13 +40,17 @@ export class MyApp {
   loggedInPages: PageInterface[] = [
     { title: 'Home', component: UserPage },
     { title: 'List', component: ListPage },
-    { title: "Ajustes", component: SettingPage}
+    { title: "Ajustes", component: SettingPage},
+    { title: "Acerca de nosotros", component: AboutPage},
+    { title: "Aviso Legal y de privacidad", component: DisclaimerPage},
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Home', component: HomePage },
     { title: 'List', component: ListPage },
     { title: 'Registrate', component:RegisterPage},
     { title: 'Inicia sesión', component:LoginPage},
+    { title: 'Acerca de nosotros', component: AboutPage},
+    { title: "Aviso Legal y de privacidad", component: DisclaimerPage }
   ];
 
   rootPage: any;

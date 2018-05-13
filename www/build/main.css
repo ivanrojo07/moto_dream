@@ -30559,6 +30559,10 @@ ion-app ion-list button.item ion-label {
   color: #fff !important;
 }
 
+page-about ion-icon {
+  color: #A07B13;
+}
+
 page-home ion-icon {
   color: #A07B13;
 }

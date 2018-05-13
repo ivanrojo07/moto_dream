@@ -21,6 +21,8 @@ import { UserPage } from '../pages/user/user';
 import { SettingPage } from '../pages/setting/setting';
 import { TarjetaPage } from '../pages/tarjeta/tarjeta';
 import { ContrasenaPage } from '../pages/contrasena/contrasena';
+import { AboutPage } from '../pages/about/about';
+import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ContrasenaPage } from '../pages/contrasena/contrasena';
     UserPage,
     SettingPage,
     ContrasenaPage,
-    TarjetaPage
+    TarjetaPage,
+    AboutPage,
+    DisclaimerPage,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,9 @@ import { ContrasenaPage } from '../pages/contrasena/contrasena';
     UserPage,
     SettingPage,
     ContrasenaPage,
-    TarjetaPage
+    TarjetaPage,
+    AboutPage,
+    DisclaimerPage,
   ],
   providers: [
     StatusBar,
