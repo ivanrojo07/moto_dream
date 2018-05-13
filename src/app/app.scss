@@ -33,13 +33,12 @@ ion-app{
         color: rgb(255, 255, 255);
       }
       ion-list{
-          button{
-            background-color: transparent !important;
-            background-position-x: 50%;
-            ion-label{
+            button.item {
+              background-color: transparent !important;
+              background-position-x: 50%;
+              ion-label {
                 color: #fff !important;
               }
           }
-          
-      }
+        }
 }

@@ -30550,12 +30550,12 @@ ion-app .toolbar-title {
   color: white;
 }
 
-ion-app ion-list button {
+ion-app ion-list button.item {
   background-color: transparent !important;
   background-position-x: 50%;
 }
 
-ion-app ion-list button ion-label {
+ion-app ion-list button.item ion-label {
   color: #fff !important;
 }
 
@@ -30677,6 +30677,43 @@ page-register ion-content {
   background-repeat: no-repeat;
   background-attachment: absolute;
   background-size: contain, cover;
+}
+
+page-setting ion-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png);
+  background-position: center top, center center;
+  background-repeat: no-repeat;
+  background-attachment: absolute;
+  background-size: contain, cover;
+  background-color: #fff;
+  background-position-x: 50%;
+}
+
+page-setting ion-content ion-card {
+  margin-top: 240px !important;
+}
+
+page-setting ion-content ion-list button.item {
+  background-color: #38464F !important;
+  background-position-x: 50%;
+}
+
+page-setting ion-content ion-list button.item ion-label {
+  color: #fff !important;
+}
+
+page-user ion-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png);
+  background-position: center top, center center;
+  background-repeat: no-repeat;
+  background-attachment: absolute;
+  background-size: contain, cover;
+  background-color: #fff;
+  background-position-x: 50%;
 }
 
 page-user ion-icon {

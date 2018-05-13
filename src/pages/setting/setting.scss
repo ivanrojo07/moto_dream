@@ -1,0 +1,31 @@
+page-setting {
+    ion-content {
+      
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-image: url(../assets/imgs/principal.png),
+      url(../assets/imgs/lineasamarillas.png);
+      background-position: center top,
+      center center;
+      background-repeat: no-repeat;
+      background-attachment: absolute;
+      background-size: contain,
+      cover;
+      background-color: #fff;
+      background-position-x: 50%;
+      ion-card{
+        margin-top: 240px !important;
+
+      }
+      ion-list {
+        button.item {
+          background-color: #38464F !important;
+          background-position-x: 50%;
+          ion-label {
+            color: #fff !important;
+          }
+        }
+      }
+    }
+
+}

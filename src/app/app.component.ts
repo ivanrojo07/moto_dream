@@ -12,6 +12,7 @@ import { Storage } from '@ionic/storage';
 
 
 import { UsuarioProvider } from '../providers/providers';
+import { SettingPage } from '../pages/setting/setting';
 
 
 
@@ -37,6 +38,7 @@ export class MyApp {
   loggedInPages: PageInterface[] = [
     { title: 'Home', component: UserPage },
     { title: 'List', component: ListPage },
+    { title: "Ajustes", component: SettingPage}
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Home', component: HomePage },

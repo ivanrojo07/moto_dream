@@ -22,6 +22,7 @@ export class UsuarioProvider {
   public oauthUrl: string;
 
   public usuario: Usuario;
+  public var_token: any;
 
   HAS_LOGGED_IN = 'hasLoggedIn';
 
@@ -31,6 +32,9 @@ export class UsuarioProvider {
     public storage: Storage,
     public events: Events,
   ) {
+    this.storage.get("access_token").then((val) => {
+      this.var_token = JSON.parse(val);
+    });
     console.log('Hello UsuarioProvider Provider');
     this.url = 'http://byw.from-tn.com/motodream/api/';
     this.oauthUrl = 'http://byw.from-tn.com/motodream/oauth/token';
@@ -118,6 +122,19 @@ export class UsuarioProvider {
     this.storage.remove('access_token');
     this.storage.remove('refresh_token');
     this.events.publish('user:logout');
-  };
+  }
+
+  changePass(params: any) {
+    let json = JSON.stringify(params);
+    console.log(this.var_token);
+    let headers = new Headers({
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Authorization": "Bearer " + this.var_token,
+    });
+    console.log(headers);
+    console.log(params);
+    return this._http.post(this.url + "password", json, { headers: headers }).map(res => res.json());
+  }
 
 }

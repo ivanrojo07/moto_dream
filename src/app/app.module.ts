@@ -18,6 +18,9 @@ import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { UserPage } from '../pages/user/user';
+import { SettingPage } from '../pages/setting/setting';
+import { TarjetaPage } from '../pages/tarjeta/tarjeta';
+import { ContrasenaPage } from '../pages/contrasena/contrasena';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { UserPage } from '../pages/user/user';
     ListPage,
     RegisterPage,
     LoginPage,
-    UserPage
+    UserPage,
+    SettingPage,
+    ContrasenaPage,
+    TarjetaPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,10 @@ import { UserPage } from '../pages/user/user';
     ListPage,
     RegisterPage,
     LoginPage,
-    UserPage
+    UserPage,
+    SettingPage,
+    ContrasenaPage,
+    TarjetaPage
   ],
   providers: [
     StatusBar,
