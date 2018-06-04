@@ -7,12 +7,49 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>TarjetaPage</ion-title>
+    <ion-title>Tarjetas</ion-title>
+    <ion-buttons end>
+      <button ion-button color="light" round icon-end icon-only end (click)="openForm()">
+        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
+  <ion-card *ngIf="messageError != null && tarjetas.length == 0">
+    <ion-card-content>
+      <ion-card-title>
+        Tarjetas
+      </ion-card-title>
+      <p>
+        {{ messageError.message }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let tarjeta of tarjetas; let i = index">
+    <ion-card-content>
+      <ion-card-title>
+        Tarjeta {{i+1}}
+      </ion-card-title>
+      <p>
+        <strong>Tipo:</strong> {{tarjeta.tipo}}
+      </p>
+      <p>
+        <strong>Nombre:</strong> {{tarjeta.nombre}}
+      </p>
+      <p>
+        <strong>Tarjeta:</strong> ************{{tarjeta.numero | slice:-4}}
+      </p>
+      <ion-buttons end>
+        <button ion-button color="light" round icon-only end (click)="eliminarTarjeta(tarjeta.id)">
+          <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-card-content>
+
+  </ion-card>
 
 </ion-content>
+

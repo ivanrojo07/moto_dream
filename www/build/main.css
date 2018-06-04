@@ -30575,6 +30575,15 @@ page-about ion-icon {
   color: #A07B13;
 }
 
+page-contrasena .bar-button {
+  color: #fff;
+}
+
+page-contrasena .bar-buttons,
+page-contrasena .toolbar-title {
+  color: #fff;
+}
+
 page-disclaimer ion-content {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -30734,6 +30743,24 @@ page-setting ion-content ion-list button.item {
 
 page-setting ion-content ion-list button.item ion-label {
   color: #fff !important;
+}
+
+page-tarjeta .bar-button {
+  color: #fff;
+}
+
+page-tarjeta .bar-buttons,
+page-tarjeta .toolbar-title {
+  color: #fff;
+}
+
+page-tarjeta-form .bar-button {
+  color: #fff;
+}
+
+page-tarjeta-form .bar-buttons,
+page-tarjeta-form .toolbar-title {
+  color: #fff;
 }
 
 page-user ion-content {

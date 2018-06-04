@@ -23,6 +23,8 @@ import { TarjetaPage } from '../pages/tarjeta/tarjeta';
 import { ContrasenaPage } from '../pages/contrasena/contrasena';
 import { AboutPage } from '../pages/about/about';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
+import { TarjetaProvider } from '../providers/tarjeta/tarjeta';
+import { TarjetaFormPage } from '../pages/tarjeta-form/tarjeta-form';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
     SettingPage,
     ContrasenaPage,
     TarjetaPage,
+    TarjetaFormPage,
     AboutPage,
     DisclaimerPage,
   ],
@@ -57,6 +60,7 @@ import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
     SettingPage,
     ContrasenaPage,
     TarjetaPage,
+    TarjetaFormPage,
     AboutPage,
     DisclaimerPage,
   ],
@@ -64,7 +68,8 @@ import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsuarioProvider
+    UsuarioProvider,
+    TarjetaProvider,
   ]
 })
 export class AppModule {}

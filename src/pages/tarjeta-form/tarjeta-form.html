@@ -1,0 +1,37 @@
+<!--
+  Generated template for the TarjetaFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nueva tarjeta </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <ion-list>
+   <form action="" #formTarjeta="ngForm" (ngSubmit)="onSubmitCard(formTarjeta)">
+     <ion-item>
+       <ion-input type="text" name="tipo" ngModel #tipo="ngModel" required placeholder="Tipo de tarjeta"></ion-input>
+     </ion-item>
+      <ion-item>
+        <ion-input type="number" name="numero" ngModel #numero="ngModel" required placeholder="Número de tarjeta"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="nombre" ngModel #nombre="ngModel" required placeholder="Nombre del propietario de la tarjeta"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-datetime displayFormat="MM/YY" name="expira" ngModel #expira="ngModel" min="{{ currentYear }}" max="{{ currentYear+20 }}"
+          required placeholder="Fecha de expiración"></ion-datetime>
+        <!-- <ion-input type="date" name"tipo" ngModel #password="ngModel" required placeholder="Tipo de tarjeta"></ion-input> -->
+      </ion-item>
+      <button ion-button color="primary" type="submit" block>Guardar tarjeta</button>
+   </form>
+    <button ion-button color="light" (click)="regresar()" block>Cancelar</button>
+ </ion-list>
+</ion-content>
