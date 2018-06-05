@@ -30600,6 +30600,42 @@ page-disclaimer ion-icon {
   color: #A07B13;
 }
 
+page-domenvio-form .bar-button {
+  color: #fff;
+}
+
+page-domenvio-form .bar-buttons,
+page-domenvio-form .toolbar-title {
+  color: #fff;
+}
+
+page-domfiscal-form .bar-button {
+  color: #fff;
+}
+
+page-domfiscal-form .bar-buttons,
+page-domfiscal-form .toolbar-title {
+  color: #fff;
+}
+
+page-domicilio-envio .bar-button {
+  color: #fff;
+}
+
+page-domicilio-envio .bar-buttons,
+page-domicilio-envio .toolbar-title {
+  color: #fff;
+}
+
+page-domicilio-fiscal .bar-button {
+  color: #fff;
+}
+
+page-domicilio-fiscal .bar-buttons,
+page-domicilio-fiscal .toolbar-title {
+  color: #fff;
+}
+
 page-home ion-icon {
   color: #A07B13;
 }

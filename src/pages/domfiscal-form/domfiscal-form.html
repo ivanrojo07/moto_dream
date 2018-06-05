@@ -1,0 +1,56 @@
+<!--
+  Generated template for the DomfiscalFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agregar tu domicilio fiscal</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <form action="ngSubmit" #formDirfiscal="ngForm" (ngSubmit)="onSubmit(formDirfiscal)">
+
+      <ion-input *ngIf="edit == true" type="hidden" name="_method" ngModel="PUT" #_method="ngModel" required></ion-input>
+      <ion-item>
+        <ion-input type="text" name="pais" ngModel="{{ domicilio.pais }}" #pais="ngModel" placeholder="Pais" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="estado" ngModel="{{ domicilio.estado }}" #estado="ngModel" placeholder="Estado" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="ciudad" ngModel="{{ domicilio.ciudad }}" #ciudad="ngModel" placeholder="Ciudad" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="municipio" ngModel="{{ domicilio.municipio }}" #municipio="ngModel" placeholder="Delegación o municipío"
+          required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="calle" ngModel="{{ domicilio.calle }}" #calle="ngModel" placeholder="Calle" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="numext" ngModel="{{ domicilio.numext }}" #numext="ngModel" placeholder="Número exterior" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="numint" ngModel="{{ domicilio.numint }}" #numint="ngModel" placeholder="Número interior"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="colonia" ngModel="{{ domicilio.colonia }}" #colonia="ngModel" placeholder="Colonia o población"
+          required></ion-input>
+      </ion-item>
+      <!-- <ion-item>
+          <ion-input type="number" name="cp" ngModel #cp="ngModel" value="{{ domicilio. }}" placeholder="Codigo Postal" required></ion-input>
+        </ion-item> -->
+
+      <button ion-button color="primary" type="submit" block>Guardar tarjeta</button>
+    </form>
+    <button ion-button color="light" (click)="regresar()" block>Cancelar</button>
+  </ion-list>
+</ion-content>
+

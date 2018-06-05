@@ -25,6 +25,12 @@ import { AboutPage } from '../pages/about/about';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 import { TarjetaProvider } from '../providers/tarjeta/tarjeta';
 import { TarjetaFormPage } from '../pages/tarjeta-form/tarjeta-form';
+import { DomicilioEnvioProvider } from '../providers/domicilio-envio/domicilio-envio';
+import { DomicilioEnvioPage } from '../pages/domicilio-envio/domicilio-envio';
+import { DomenvioFormPage } from '../pages/domenvio-form/domenvio-form';
+import { DomicilioFiscalProvider } from '../providers/domicilio-fiscal/domicilio-fiscal';
+import { DomicilioFiscalPage } from '../pages/domicilio-fiscal/domicilio-fiscal';
+import { DomfiscalFormPage } from '../pages/domfiscal-form/domfiscal-form';
 
 @NgModule({
   declarations: [
@@ -40,6 +46,10 @@ import { TarjetaFormPage } from '../pages/tarjeta-form/tarjeta-form';
     TarjetaFormPage,
     AboutPage,
     DisclaimerPage,
+    DomicilioEnvioPage,
+    DomenvioFormPage,
+    DomicilioFiscalPage,
+    DomfiscalFormPage,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +73,10 @@ import { TarjetaFormPage } from '../pages/tarjeta-form/tarjeta-form';
     TarjetaFormPage,
     AboutPage,
     DisclaimerPage,
+    DomicilioEnvioPage,
+    DomenvioFormPage,
+    DomicilioFiscalPage,
+    DomfiscalFormPage,
   ],
   providers: [
     StatusBar,
@@ -70,6 +84,8 @@ import { TarjetaFormPage } from '../pages/tarjeta-form/tarjeta-form';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsuarioProvider,
     TarjetaProvider,
+    DomicilioEnvioProvider,
+    DomicilioFiscalProvider,
   ]
 })
 export class AppModule {}

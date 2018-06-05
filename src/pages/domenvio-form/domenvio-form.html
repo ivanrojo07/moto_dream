@@ -1,0 +1,65 @@
+<!--
+  Generated template for the DomenvioFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agrega tu domicilio
+      <br> de envio</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <form action="ngSubmit" #formDirenvio="ngForm" (ngSubmit)="onSubmit(formDirenvio)">
+      <ion-input *ngIf="edit == true" type="hidden" name="_method" ngModel="PUT" #_method="ngModel" required></ion-input>
+      <ion-item>
+        <ion-input type="text" name="pais" ngModel="{{ domicilio.pais }}" #pais="ngModel" placeholder="Pais" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="estado" ngModel="{{ domicilio.estado }}" #estado="ngModel" placeholder="Estado" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="ciudad" ngModel="{{ domicilio.ciudad }}" #ciudad="ngModel" placeholder="Ciudad" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="municipio" ngModel="{{ domicilio.municipio }}" #municipio="ngModel" placeholder="Delegación o municipío"
+          required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="calle" ngModel="{{ domicilio.calle }}" #calle="ngModel" placeholder="Calle" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="numext" ngModel="{{ domicilio.numext }}" #numext="ngModel" placeholder="Número exterior" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="numint" ngModel="{{ domicilio.numint }}" #numint="ngModel" placeholder="Número interior"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="colonia" ngModel="{{ domicilio.colonia }}" #colonia="ngModel" placeholder="Colonia o población"
+          required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="entre1" ngModel="{{ domicilio.entre1 }}" #entre1="ngModel" placeholder="Entre calle"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="entre2" ngModel="{{ domicilio.entre2 }}" #entre2="ngModel" placeholder="Y calle"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea type="text" name="referencia" ngModel="{{ domicilio.referencia }}" #referencia="ngModel" placeholder="Referencia adicional"></ion-textarea>
+      </ion-item>
+
+      <button ion-button color="primary" type="submit" block>Guardar domicilio</button>
+
+    </form>
+
+    <button ion-button color="light" (click)="regresar()" block>Cancelar</button>
+
+  </ion-list>
+</ion-content>
+

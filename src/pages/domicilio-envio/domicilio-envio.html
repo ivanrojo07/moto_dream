@@ -1,0 +1,67 @@
+<!--
+  Generated template for the DomicilioEnvioPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Domicilios de envio</ion-title>
+    <ion-buttons end>
+      <button ion-button color="light" round icon-end icon-only end (click)="openForm()">
+        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngIf="domicilios.length == 0">
+    <ion-card-content>
+      <ion-card-title>
+        Dirección envio
+      </ion-card-title>
+      <p>
+        Aun no tienes direcciones agregadas
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngFor="let direccion of domicilios; let i = index">
+    <ion-card-content>
+      <ion-card-title>
+        Dirección de envios {{i+1}}
+      </ion-card-title>
+      <p>
+        <strong>Pais: </strong> {{direccion.pais}}
+      </p>
+      <p>
+        <strong>Estado: </strong> {{direccion.estado}}
+      </p>
+      <p>
+        <strong>Municipio: </strong> {{direccion.municipio}}
+      </p>
+      <p>
+        <strong>Colonia: </strong> {{direccion.colonia}}
+      </p>
+      <ion-buttons end>
+        <button ion-button color="light" round icon-only end (click)="showDireccion(direccion.id)">
+          <!-- Advanced: explicity set the icon for each platform -->
+          <ion-icon ios="ios-information-circle" md="md-information-circle"></ion-icon>
+        </button>
+        <button ion-button color="light" round icon-only end (click)="editDireccion(direccion)">
+          <!-- Advanced: explicity set the icon for each platform -->
+          <ion-icon ios="ios-create" md="md-create"></ion-icon>
+        </button>
+        <button ion-button color="light" round icon-only end (click)="eliminarDireccion(direccion.id)">
+          <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
+

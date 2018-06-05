@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ContrasenaPage } from '../contrasena/contrasena';
 import { TarjetaPage } from '../tarjeta/tarjeta';
+import { DomicilioEnvioPage } from '../domicilio-envio/domicilio-envio';
+import { DomicilioFiscalPage } from '../domicilio-fiscal/domicilio-fiscal';
 
 /**
  * Generated class for the SettingPage page.
@@ -24,7 +26,9 @@ export class SettingPage {
 
   SettingPages: PageInterface[]=[
     { title: "Cambiar contraseña", component: ContrasenaPage },
-    { title: "Tarjetas", component: TarjetaPage }
+    { title: "Tarjetas", component: TarjetaPage },
+    { title: "Domicilio de entrega", component: DomicilioEnvioPage },
+    { title: "Domicilio fiscal", component: DomicilioFiscalPage },
   ];
 
   constructor(
