@@ -31,6 +31,8 @@ import { DomenvioFormPage } from '../pages/domenvio-form/domenvio-form';
 import { DomicilioFiscalProvider } from '../providers/domicilio-fiscal/domicilio-fiscal';
 import { DomicilioFiscalPage } from '../pages/domicilio-fiscal/domicilio-fiscal';
 import { DomfiscalFormPage } from '../pages/domfiscal-form/domfiscal-form';
+import { MotoProvider } from '../providers/moto/moto';
+import { MotosPage } from '../pages/motos/motos';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { DomfiscalFormPage } from '../pages/domfiscal-form/domfiscal-form';
     DomenvioFormPage,
     DomicilioFiscalPage,
     DomfiscalFormPage,
+    MotosPage,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +80,7 @@ import { DomfiscalFormPage } from '../pages/domfiscal-form/domfiscal-form';
     DomenvioFormPage,
     DomicilioFiscalPage,
     DomfiscalFormPage,
+    MotosPage,
   ],
   providers: [
     StatusBar,
@@ -86,6 +90,7 @@ import { DomfiscalFormPage } from '../pages/domfiscal-form/domfiscal-form';
     TarjetaProvider,
     DomicilioEnvioProvider,
     DomicilioFiscalProvider,
+    MotoProvider,
   ]
 })
 export class AppModule {}

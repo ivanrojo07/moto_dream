@@ -15,6 +15,7 @@ import { UsuarioProvider } from '../providers/providers';
 import { SettingPage } from '../pages/setting/setting';
 import { AboutPage } from '../pages/about/about';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
+import { MotosPage } from '../pages/motos/motos';
 
 
 
@@ -43,6 +44,7 @@ export class MyApp {
     { title: "Ajustes", component: SettingPage},
     { title: "Acerca de nosotros", component: AboutPage},
     { title: "Aviso Legal y de privacidad", component: DisclaimerPage},
+    { title: "Mis motos", component: MotosPage }
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Home', component: HomePage },
