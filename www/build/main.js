@@ -28,6 +28,7 @@ var MotoPage = /** @class */ (function () {
     function MotoPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        console.log(this.moto);
         this.moto = this.navParams.get("moto");
         console.log(this.moto);
     }
@@ -36,7 +37,7 @@ var MotoPage = /** @class */ (function () {
     };
     MotoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-moto',template:/*ion-inline-start:"C:\Users\ByW1\Desktop\dream_moto\src\pages\moto\moto.html"*/'<!--\n  Generated template for the MotoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>MotoPage</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\ByW1\Desktop\dream_moto\src\pages\moto\moto.html"*/,
+            selector: 'page-moto',template:/*ion-inline-start:"C:\Users\ByW1\Desktop\dream_moto\src\pages\moto\moto.html"*/'<!--\n  Generated template for the MotoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>MotoPage</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-card>\n    <ion-card-header>\n      {{ moto.marca }}\n    </ion-card-header>\n    <ion-card-content>\n      <p *ngIf="moto.modelo"><strong>Modelo: {{moto.modelo}} </strong></p>\n      <p *ngIf="moto.version"><strong>Versión: {{moto.version}}</strong></p>\n      <p *ngIf="moto.serie"><strong>Número de serie: {{moto.serie}}</strong></p>\n      <p *ngIf="moto.km"><strong>Kilometros: {{moto.km}}</strong></p>\n      <p *ngIf="moto.anio"><strong>Año: {{moto.anio}}</strong></p>\n      <button ion-button color="primary" block>Subir Foto(s)</button>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ByW1\Desktop\dream_moto\src\pages\moto\moto.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object])
     ], MotoPage);

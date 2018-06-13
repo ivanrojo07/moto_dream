@@ -14,5 +14,17 @@
 
 
 <ion-content padding>
-
+  <ion-card>
+    <ion-card-header>
+      {{ moto.marca }}
+    </ion-card-header>
+    <ion-card-content>
+      <p *ngIf="moto.modelo"><strong>Modelo: {{moto.modelo}} </strong></p>
+      <p *ngIf="moto.version"><strong>Versión: {{moto.version}}</strong></p>
+      <p *ngIf="moto.serie"><strong>Número de serie: {{moto.serie}}</strong></p>
+      <p *ngIf="moto.km"><strong>Kilometros: {{moto.km}}</strong></p>
+      <p *ngIf="moto.anio"><strong>Año: {{moto.anio}}</strong></p>
+      <button ion-button color="primary" block>Subir Foto(s)</button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
