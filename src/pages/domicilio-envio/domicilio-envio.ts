@@ -56,7 +56,7 @@ export class DomicilioEnvioPage implements OnInit {
         console.log(result);
         this.domicilios = result.domicilio;
         console.log(this.domicilios);
-        this.messageError == null
+        this.messageError = null
       }, error => {
         this.messageError = JSON.parse(error._body)
         console.log("Error " + JSON.stringify(this.messageError));

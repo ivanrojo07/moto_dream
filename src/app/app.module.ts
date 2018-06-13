@@ -1,3 +1,5 @@
+import { MotoPage } from './../pages/moto/moto';
+import { MotoFormPage } from './../pages/moto-form/moto-form';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -53,6 +55,8 @@ import { MotosPage } from '../pages/motos/motos';
     DomicilioFiscalPage,
     DomfiscalFormPage,
     MotosPage,
+    MotoPage,
+    MotoFormPage,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +85,8 @@ import { MotosPage } from '../pages/motos/motos';
     DomicilioFiscalPage,
     DomfiscalFormPage,
     MotosPage,
+    MotoPage,
+    MotoFormPage,
   ],
   providers: [
     StatusBar,
