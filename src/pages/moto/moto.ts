@@ -15,7 +15,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MotoPage {
 
+  public moto: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.moto = this.navParams.get("moto");
+    console.log(this.moto);
   }
 
   ionViewDidLoad() {
