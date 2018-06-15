@@ -1,3 +1,4 @@
+import { ProductosPage } from './../pages/productos/productos';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, MenuController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -44,7 +45,8 @@ export class MyApp {
     { title: "Ajustes", component: SettingPage},
     { title: "Acerca de nosotros", component: AboutPage},
     { title: "Aviso Legal y de privacidad", component: DisclaimerPage},
-    { title: "Mis motos", component: MotosPage }
+    { title: "Mis motos", component: MotosPage },
+    { title: 'Mis productos', component: ProductosPage},
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Home', component: HomePage },

@@ -1,3 +1,4 @@
+import { ProductosPage } from './../pages/productos/productos';
 import { MotoPage } from './../pages/moto/moto';
 import { MotoFormPage } from './../pages/moto-form/moto-form';
 import { BrowserModule } from '@angular/platform-browser';
@@ -35,6 +36,9 @@ import { DomicilioFiscalPage } from '../pages/domicilio-fiscal/domicilio-fiscal'
 import { DomfiscalFormPage } from '../pages/domfiscal-form/domfiscal-form';
 import { MotoProvider } from '../providers/moto/moto';
 import { MotosPage } from '../pages/motos/motos';
+import { ProductoProvider } from '../providers/producto/producto';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductosFormPage } from '../pages/productos-form/productos-form';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,7 @@ import { MotosPage } from '../pages/motos/motos';
     ContrasenaPage,
     TarjetaPage,
     TarjetaFormPage,
-    AboutPage,
+    AboutPage, 
     DisclaimerPage,
     DomicilioEnvioPage,
     DomenvioFormPage,
@@ -57,11 +61,14 @@ import { MotosPage } from '../pages/motos/motos';
     MotosPage,
     MotoPage,
     MotoFormPage,
+    ProductosPage,
+    ProductosFormPage,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     JsonpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
@@ -87,6 +94,8 @@ import { MotosPage } from '../pages/motos/motos';
     MotosPage,
     MotoPage,
     MotoFormPage,
+    ProductosPage,
+    ProductosFormPage,
   ],
   providers: [
     StatusBar,
@@ -97,6 +106,7 @@ import { MotosPage } from '../pages/motos/motos';
     DomicilioEnvioProvider,
     DomicilioFiscalProvider,
     MotoProvider,
+    ProductoProvider,
   ]
 })
 export class AppModule {}

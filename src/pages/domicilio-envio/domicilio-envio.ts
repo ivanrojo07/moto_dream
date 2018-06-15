@@ -72,7 +72,7 @@ export class DomicilioEnvioPage implements OnInit {
         console.log(result);
         this.alertPresentacion(result.domicilio);
       }, error => {
-
+        console.log(JSON.stringify(error));
       });
     });
   }

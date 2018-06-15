@@ -1,3 +1,4 @@
+import { ProductoProvider } from './producto/producto';
 import { UsuarioProvider } from "./usuario/usuario";
 import { TarjetaProvider } from "./tarjeta/tarjeta";
 import { DomicilioEnvioProvider } from "./domicilio-envio/domicilio-envio";
@@ -10,4 +11,5 @@ export {
     DomicilioEnvioProvider,
     DomicilioFiscalProvider,
     MotoProvider,
+    ProductoProvider,
 }
