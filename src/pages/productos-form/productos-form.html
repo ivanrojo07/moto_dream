@@ -14,5 +14,23 @@
 
 
 <ion-content padding>
-
+  <ion-list>
+    <form action="ngSubmit" #formProducto="ngForm" (ngSubmit)="onSubmit(formProducto)">
+      <ion-input *ngIf="edit" type="hidden" name="_method" ngModel="PUT" #_method="ngModel" required></ion-input>
+      <ion-item>
+        <ion-input type="text" name="nombre" ngModel="{{producto.nombre}}" #nombre="ngModel" placeholder="Nombre del producto" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea type="text" name="descripcion" ngModel="{{producto.descripcion}}" #descripcion="ngModel" placeholder="Descripción del producto"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" min="1" name="cantidad" ngModel="{{producto.cantidad}}" #cantidad="ngModel" placeholder="Cantidad" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" min="0" step="0.01" name="precio" ngModel="{{producto.precio}}" #precio="ngModel" placeholder="Precio" required></ion-input>
+      </ion-item>
+      <button ion-button color="primary" type="submit" block>Guardar producto</button>
+    </form>
+    <button ion-button color="light" (click)="regresar()" block>Cancelar</button>
+  </ion-list>
 </ion-content>

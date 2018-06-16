@@ -78,6 +78,10 @@ export class ProductosFormPage {
     }
   }
 
+  regresar(){
+    this.navCtrl.pop();
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductosFormPage');
   }
