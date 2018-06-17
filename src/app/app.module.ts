@@ -1,3 +1,4 @@
+import { ProductoFotosPage } from './../pages/producto-fotos/producto-fotos';
 import { ProductosPage } from './../pages/productos/productos';
 import { MotoPage } from './../pages/moto/moto';
 import { MotoFormPage } from './../pages/moto-form/moto-form';
@@ -63,6 +64,7 @@ import { ProductosFormPage } from '../pages/productos-form/productos-form';
     MotoFormPage,
     ProductosPage,
     ProductosFormPage,
+    ProductoFotosPage,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +98,7 @@ import { ProductosFormPage } from '../pages/productos-form/productos-form';
     MotoFormPage,
     ProductosPage,
     ProductosFormPage,
+    ProductoFotosPage,
   ],
   providers: [
     StatusBar,

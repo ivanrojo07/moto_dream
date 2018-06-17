@@ -40,8 +40,9 @@ export class ProductoProvider {
   }
 
   deleteProducto(token,prod_id){
-    let params = new HttpParams();
-    params.set('_method','DELETE');
+    let params = {
+      _method : "DELETE"
+    }
 
     let headers = new HttpHeaders({
       'Content-Type' : 'application/json',
