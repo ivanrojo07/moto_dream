@@ -10,4 +10,21 @@ page-producto-fotos-form {
     .bar-button {
        color: #fff;
     } //
+    ion-content{
+        ion-buttons{
+            button,ion-button{
+                position: absolute;
+            }
+        }
+        ion-card{
+            
+            // height: 400px;
+            img {
+            position: absolute top;
+            top: 20px;
+            margin-bottom: 40px !important;
+            }
+            
+        }
+    }
 }

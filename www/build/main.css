@@ -30783,6 +30783,16 @@ page-producto-fotos-form .bar-button {
   color: #fff;
 }
 
+page-producto-fotos-form ion-content ion-buttons button, page-producto-fotos-form ion-content ion-buttons ion-button {
+  position: absolute;
+}
+
+page-producto-fotos-form ion-content ion-card img {
+  position: absolute top;
+  top: 20px;
+  margin-bottom: 40px !important;
+}
+
 page-productos ion-content {
   padding-top: 40px;
   padding-bottom: 40px;

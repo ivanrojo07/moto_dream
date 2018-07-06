@@ -18,6 +18,14 @@
   <button ion-button block (click)="takePhotoGallery()"><ion-icon name="albums"></ion-icon>Galeria</button>
   <button ion-button block (click)="takePhotoCamera()"><ion-icon name="camera"></ion-icon> Foto</button>
   <ion-card *ngFor="let imagen of aImages">
-    <img [src]="imagen.image">
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-card-content>
+      <img [src]="imagen.image">
+
+    </ion-card-content>
   </ion-card>
 </ion-content>
