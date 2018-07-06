@@ -7,7 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ProductoFotosPage</ion-title>
+    <ion-title>Fotos de {{producto.nombre}}</ion-title>
+    <ion-buttons end>
+      <button ion-button color="light" round icon-end icon-only end (click)="openForm()">
+        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>

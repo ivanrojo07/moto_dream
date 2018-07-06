@@ -62,7 +62,7 @@ export class ProductosPage implements OnInit {
     this.navCtrl.push(ProductosFormPage);
   }
   showProducto(producto:Producto){
-    console.log(producto);
+    // console.log(producto);
     this.navCtrl.push(ProductoFotosPage,{'producto':producto});
   }
   eliminarProducto(prod_id){

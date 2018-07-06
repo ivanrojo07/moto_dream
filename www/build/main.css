@@ -30759,6 +30759,30 @@ page-motos ion-icon {
   color: #A07B13;
 }
 
+page-producto-fotos .toolbar-title {
+  display: block;
+  overflow: hidden;
+  word-wrap: break-word !important;
+  text-overflow: ellipsis;
+  white-space: inherit;
+}
+
+page-producto-fotos .bar-button {
+  color: #fff;
+}
+
+page-producto-fotos-form .toolbar-title {
+  display: block;
+  overflow: hidden;
+  word-wrap: break-word !important;
+  text-overflow: ellipsis;
+  white-space: inherit;
+}
+
+page-producto-fotos-form .bar-button {
+  color: #fff;
+}
+
 page-productos ion-content {
   padding-top: 40px;
   padding-bottom: 40px;

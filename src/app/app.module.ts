@@ -1,3 +1,5 @@
+import { Camera } from '@ionic-native/camera';
+import { ProductoFotosFormPage } from './../pages/producto-fotos-form/producto-fotos-form';
 import { ProductoFotosPage } from './../pages/producto-fotos/producto-fotos';
 import { ProductosPage } from './../pages/productos/productos';
 import { MotoPage } from './../pages/moto/moto';
@@ -65,12 +67,13 @@ import { ProductosFormPage } from '../pages/productos-form/productos-form';
     ProductosPage,
     ProductosFormPage,
     ProductoFotosPage,
+    ProductoFotosFormPage,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
     HttpClientModule,
+    HttpModule,
     JsonpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
@@ -99,9 +102,11 @@ import { ProductosFormPage } from '../pages/productos-form/productos-form';
     ProductosPage,
     ProductosFormPage,
     ProductoFotosPage,
+    ProductoFotosFormPage,
   ],
   providers: [
     StatusBar,
+    Camera,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsuarioProvider,
