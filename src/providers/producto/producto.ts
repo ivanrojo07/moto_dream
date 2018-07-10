@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
@@ -16,6 +16,7 @@ export class ProductoProvider {
 
   constructor(public http: HttpClient) {
     this.url="http://byw.from-tn.com/motodream/api/productos";
+    // this.url ="http://localhost/dream_moto_backend/public/api/productos";
     console.log('Hello ProductoProvider Provider');
   }
 
@@ -50,6 +51,26 @@ export class ProductoProvider {
       'Authorization' : 'Bearer '+token
     });
     return this.http.post(this.url+'/'+prod_id,params,{headers: headers});
+  }
+
+  savePhotoProducto(token,prod_id,images){
+    // images = JSON.parse(images);
+    var imagen = JSON.stringify(images).replace(/]|[[]/g, '');
+    // imagen = imagen;
+    console.log(imagen);
+  
+    
+    // let params = JSON.parse(images.toJson());
+;
+    
+    console.log('params: '+JSON.stringify(imagen));
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      // 'Accept': 'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+
+    return this.http.post(this.url+'/'+prod_id+'/fotoproducto',JSON.parse(JSON.stringify(imagen)),{headers:headers});
   }
 
 

@@ -30779,6 +30779,11 @@ page-producto-fotos-form .toolbar-title {
   white-space: inherit;
 }
 
+page-producto-fotos-form .delete {
+  top: 0px;
+  right: 0px;
+}
+
 page-producto-fotos-form .bar-button {
   color: #fff;
 }

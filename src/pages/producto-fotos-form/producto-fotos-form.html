@@ -8,24 +8,52 @@
 
   <ion-navbar>
     <ion-title>Agregar fotos a {{producto.nombre}}</ion-title>
+    
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-fab bottom right>
+    <button ion-fab mini>
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-fab-list side='left'>
+      <button ion-fab (click)="takePhotoGallery()">
+        <ion-icon name="albums"></ion-icon>
+      </button>
+      <button ion-fab (click)="takePhotoCamera()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
 
-  <button ion-button block (click)="takePhotoGallery()"><ion-icon name="albums"></ion-icon>Galeria</button>
-  <button ion-button block (click)="takePhotoCamera()"><ion-icon name="camera"></ion-icon> Foto</button>
-  <ion-card *ngFor="let imagen of aImages">
-    <ion-buttons end>
+  
+
+  <!-- <button ion-button block (click)="takePhotoGallery()"><ion-icon name="albums"></ion-icon>Galeria</button>
+  <button ion-button block (click)="takePhotoCamera()"><ion-icon name="camera"></ion-icon> Foto</button> -->
+  <ion-card *ngFor="let imagen of aImages; let i = index">
+    
+    <ion-buttons>
+      <ion-fab right top class="delete">
+        <button ion-fab color="danger" mini (click)="deletePhoto(i)">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-fab>
+    </ion-buttons>
+    
+    <!-- <ion-buttons end>
       <button ion-button icon-only>
         <ion-icon name="close"></ion-icon>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
     <ion-card-content>
-      <img [src]="imagen.image">
+      <img [src]="imagen.imagen">
+      
 
     </ion-card-content>
   </ion-card>
+<button ion-button block (click)="save(aImages)" [disabled]="aImages.length == 0">
+    Guardar</button>
 </ion-content>
