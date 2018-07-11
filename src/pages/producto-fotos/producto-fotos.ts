@@ -65,4 +65,17 @@ export class ProductoFotosPage implements OnInit {
       });
     });
   }
+  deletePhoto(imagen:any){
+    console.log(imagen);
+    this.storage.get('access_token').then(val=>{
+      let token = JSON.parse(val);
+      this.productProvider.deleteImage(this.producto.id,token,imagen.id).subscribe(result=>{
+        console.log(result);
+        this.ngOnInit();
+      },error=>{
+        console.log(error);
+
+      });
+    });
+  }
 }

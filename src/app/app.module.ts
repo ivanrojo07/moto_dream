@@ -42,6 +42,9 @@ import { MotosPage } from '../pages/motos/motos';
 import { ProductoProvider } from '../providers/producto/producto';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosFormPage } from '../pages/productos-form/productos-form';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+
+
 
 @NgModule({
   declarations: [
@@ -77,6 +80,7 @@ import { ProductosFormPage } from '../pages/productos-form/productos-form';
     JsonpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
+    IonicImageViewerModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

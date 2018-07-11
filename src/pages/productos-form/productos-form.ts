@@ -68,7 +68,7 @@ export class ProductosFormPage {
           this.productoProvider.setProducto(token,params).subscribe(result=>{
             console.log(result);
             if(result['producto']){
-              this.alert('Producto agregadp','Producto agregado correctamente');
+              this.alert('Producto agregado','Producto agregado correctamente, no olvides agregar fotos del producto');
               this.navCtrl.pop();
             }
           });
