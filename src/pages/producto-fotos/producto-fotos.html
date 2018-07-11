@@ -20,4 +20,26 @@
 
 <ion-content padding>
 
+  <ion-card *ngFor="let imagen of fotos; let i = index">
+<!-- 
+    <ion-buttons>
+      <ion-fab right top class="delete">
+        <button ion-fab color="danger" mini (click)="deletePhoto(i)">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-fab>
+    </ion-buttons> -->
+
+    <!-- <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons> -->
+    <ion-card-content>
+      <img src="{{url}}{{imagen.image_path}}">
+
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

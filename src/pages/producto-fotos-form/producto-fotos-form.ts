@@ -1,7 +1,7 @@
 import { NgForm } from '@angular/forms';
 import { Producto } from './../../models/producto';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ProductoProvider } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
@@ -28,14 +28,14 @@ export class ProductoFotosFormPage {
 
   public producto : Producto;
   aImages: Images[];
-  public form :NgForm;
-
 
   constructor(public navCtrl: NavController, 
     private camera: Camera, 
     public navParams: NavParams,
     private productoProvider: ProductoProvider,
     private storage: Storage,
+    public alertCtrl: AlertController,
+
   ) 
   {
     this.producto = navParams.get('producto');
@@ -71,7 +71,7 @@ export class ProductoFotosFormPage {
 
       // Push to array
       this.aImages.push({
-        imagen:picture
+        'imagen':picture
       });
       console.log(this.aImages);
 
@@ -97,7 +97,7 @@ export class ProductoFotosFormPage {
 
       // Push to array
       this.aImages.push({
-        imagen:picture
+        'imagen':picture
       });
       console.log(this.aImages);
 
@@ -108,21 +108,36 @@ export class ProductoFotosFormPage {
   /**
    * save
    */
-  public save(imagenes:any[]) {
-    console.log(imagenes);
+  public save(imagenes) {
     this.storage.get('access_token').then((val) => {
       let token = JSON.parse(val);
-      // for (let index = 0; index < imagenes.length; index++) {
-      //   this.form.setValue({'imagen':imagenes[index].imagen});
-        
-      // }
-      console.log(this.aImages);
-      console.log(imagenes);
-        this.productoProvider.savePhotoProducto(token,this.producto.id,imagenes).subscribe(result=>{
+      this.productoProvider.savePhotoProducto(token,this.producto.id,imagenes).subscribe(result=>{
         console.log(result);
-      });
+        if (!result) {
+          this.alert("Error", "Problemas con el servidor");
+        }
+        else {
+         
+            console.log(result['message']);
+            this.alert('', result['message']);
 
+            this.navCtrl.pop();
+        }
+      }, error => {
+        let err = JSON.parse(error._body);
+        
+        console.log("Error: " + JSON.stringify(err));
+      });
     });
     
+  }
+
+  public alert(titulo: string, contenido: string) {
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: contenido,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }

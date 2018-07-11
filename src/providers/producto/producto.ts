@@ -55,22 +55,39 @@ export class ProductoProvider {
 
   savePhotoProducto(token,prod_id,images){
     // images = JSON.parse(images);
-    var imagen = JSON.stringify(images).replace(/]|[[]/g, '');
-    // imagen = imagen;
-    console.log(imagen);
-  
+    // var imagesn = JSON.stringify(images).replace(/]|[[]/g, '');
+    // imagesn = imagesn;
+    console.log(images);
+    // images = JSON.parse(JSON.stringify(images));
+    // let params = {
+    //   'imagesnes': images
+
+    // };
+    // params = JSON.parse(JSON.stringify(params));
+
+    // let params = {
+    //   'images': images
+    // };
+    // params = JSON.parse(JSON.stringify(params));
+    // console.log(params);
+
     
-    // let params = JSON.parse(images.toJson());
-;
-    
-    console.log('params: '+JSON.stringify(imagen));
     let headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
       // 'Accept': 'application/json',
       'Authorization': 'Bearer ' + token
     });
 
-    return this.http.post(this.url+'/'+prod_id+'/fotoproducto',JSON.parse(JSON.stringify(imagen)),{headers:headers});
+    return this.http.post(this.url+'/'+prod_id+'/fotoproducto',images,{headers:headers});
+  }
+
+  getFotos(product_id,token){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+    return this.http.get(this.url+'/'+product_id+'/fotoproducto',{headers:headers});
   }
 
 
