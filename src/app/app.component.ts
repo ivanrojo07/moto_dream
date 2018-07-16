@@ -1,8 +1,9 @@
 import { ProductosPage } from './../pages/productos/productos';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, MenuController, Events } from 'ionic-angular';
+import { Nav, Platform, MenuController, Events, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -17,6 +18,8 @@ import { SettingPage } from '../pages/setting/setting';
 import { AboutPage } from '../pages/about/about';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 import { MotosPage } from '../pages/motos/motos';
+import { Network } from '../../node_modules/@ionic-native/network';
+import { MyproductosPage } from '../pages/myproductos/myproductos';
 
 
 
@@ -46,7 +49,8 @@ export class MyApp {
     { title: "Acerca de nosotros", component: AboutPage},
     { title: "Aviso Legal y de privacidad", component: DisclaimerPage},
     { title: "Mis motos", component: MotosPage },
-    { title: 'Mis productos', component: ProductosPage},
+    { title: 'Mis productos', component: MyproductosPage},
+    { title: 'Productos', component: ProductosPage },
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Home', component: HomePage },
@@ -72,9 +76,43 @@ export class MyApp {
     private _usuarioService: UsuarioProvider,
     public menu: MenuController,
     public events: Events,
+    private network: Network,
+    private toastCtrl: ToastController,
+   
   ) {
     this.initializeApp();
     this.listenToLoginEvents();
+    // watch network for a disconnect
+    this.network.onDisconnect().subscribe(() => {
+      console.log('network was disconnected :(');
+      let toast = this.toastCtrl.create({
+        message: 'Te desconectaste de tu red de datos. Tus cambios no se podrán guardar, por favor conectate pronto',
+        // duration: 3000,
+        showCloseButton: true,
+        closeButtonText: 'Ok',
+        position: 'middle'
+      });
+      toast.onDidDismiss(() => {
+        console.log('Dismissed toast');
+      });
+
+      toast.present();
+    });
+    console.log(this.network);
+    // watch network for a connection
+    this.network.onConnect().subscribe(() => {
+      console.log('network connected!');
+      // We just got a connection but we need to wait briefly
+      // before we determine the connection type. Might need to wait.
+      // prior to doing any api requests as well.
+      setTimeout(() => {
+        if (this.network.type === 'wifi') {
+          console.log('we got a wifi connection, woohoo!');
+        }
+      }, 3000);
+    });
+
+    
 
     
     
@@ -115,6 +153,7 @@ export class MyApp {
     this.events.subscribe('user:logout', () => {
       this.enableMenu(false);
     });
+    
   }
 
   enableMenu(loggedIn: boolean) {

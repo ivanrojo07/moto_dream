@@ -1,0 +1,67 @@
+<!--
+  Generated template for the MyproductosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+  <ion-navbar>
+    <button ion-button menuToggle icon-only class="menu">
+      <ion-icon md="md-menu" ios="ios-menu"></ion-icon>
+      <!-- <ion-icon></ion-icon> -->
+    </button>
+    <ion-title>Mis Productos</ion-title>
+    <ion-buttons end>
+      <button ion-button color="light" round icon-end icon-only end (click)="openForm()">
+        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngIf="productos.length == 0 || messageError != null">
+
+    <ion-card-header>
+      Productos
+    </ion-card-header>
+    <ion-card-content>
+      No tienes productos agregados por el momento.
+    </ion-card-content>
+
+  </ion-card>
+  <ion-card *ngFor="let producto of productos">
+    <ion-card-header>
+      {{ producto.nombre }}
+    </ion-card-header>
+    <ion-card-content>
+      <p *ngIf="producto.descripcion">
+        <strong>{{producto.descripcion}}</strong>
+      </p>
+      <p>
+        <strong>Cantidad: {{producto.cantidad}}</strong>
+      </p>
+      <p>
+        <strong>Precio: {{producto.precio}}</strong>
+      </p>
+      <ion-buttons end>
+        <button ion-button color="light" round icon-only end (click)="showProducto(producto)">
+          <!-- Advanced: explicity set the icon for each platform -->
+          <!-- Advanced: explicity set the icon for each platform -->
+          <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+        </button>
+        <!-- <button ion-button color="light" round icon-only end (click)="editMoto(moto)"> -->
+        <!-- Advanced: explicity set the icon for each platform -->
+        <!-- <ion-icon ios="ios-create" md="md-create"></ion-icon> -->
+        <!-- </button> -->
+        <button ion-button color="light" round icon-only end (click)="eliminarProducto(producto.id)">
+          <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Usuario } from '../../models/usuario';
 import { UsuarioProvider } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
-import { ListPage } from '../list/list';
 /**
  * Generated class for the UserPage page.
  *
@@ -17,7 +16,7 @@ import { ListPage } from '../list/list';
   templateUrl: 'user.html',
   providers: [UsuarioProvider]
 })
-export class UserPage {
+export class UserPage implements OnInit {
 
   public usuario: Usuario;
   public access_token: string;
@@ -26,8 +25,11 @@ export class UserPage {
     public navParams: NavParams,
     private _usuarioService: UsuarioProvider,
     private storage: Storage,
+    
   ) {
     this.usuario = new Usuario(null,'','','','','','','');
+
+    
   }
   ngOnInit(){
     this.storage.get("access_token").then((val)=>{

@@ -3,7 +3,7 @@ import { Producto } from './../../models/producto';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { ProductoProvider } from '../../providers/providers';
+import { MyproductoProvider } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 
 /**
@@ -22,7 +22,7 @@ export interface Images{
 @Component({
   selector: 'page-producto-fotos-form',
   templateUrl: 'producto-fotos-form.html',
-  providers: [ProductoProvider]
+  providers: [MyproductoProvider]
 })
 export class ProductoFotosFormPage {
 
@@ -32,7 +32,7 @@ export class ProductoFotosFormPage {
   constructor(public navCtrl: NavController, 
     private camera: Camera, 
     public navParams: NavParams,
-    private productoProvider: ProductoProvider,
+    private productoProvider: MyproductoProvider,
     private storage: Storage,
     public alertCtrl: AlertController,
 

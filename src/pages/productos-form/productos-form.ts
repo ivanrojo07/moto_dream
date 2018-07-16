@@ -1,7 +1,7 @@
 import { Producto } from './../../models/producto';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { ProductoProvider } from '../../providers/providers';
+import { MyproductoProvider } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 import { NgForm } from "@angular/forms";
 
@@ -16,7 +16,7 @@ import { NgForm } from "@angular/forms";
 @Component({
   selector: 'page-productos-form',
   templateUrl: 'productos-form.html',
-  providers: [ProductoProvider]
+  providers: [MyproductoProvider]
 })
 export class ProductosFormPage {
 
@@ -27,7 +27,7 @@ export class ProductosFormPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private storage: Storage,
-    private productoProvider: ProductoProvider,
+    private productoProvider: MyproductoProvider,
     public alertCtrl: AlertController,
   ) {
     if (this.navParams.get('edit')) {

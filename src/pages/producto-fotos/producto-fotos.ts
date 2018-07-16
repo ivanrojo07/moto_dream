@@ -1,4 +1,4 @@
-import { ProductoProvider } from './../../providers/producto/producto';
+import { MyproductoProvider } from './../../providers/providers';
 import { OnInit } from '@angular/core';
 import { Producto } from './../../models/producto';
 import { ProductoFotosFormPage } from './../producto-fotos-form/producto-fotos-form';
@@ -17,21 +17,24 @@ import { Storage } from "@ionic/storage";
 @Component({
   selector: 'page-producto-fotos',
   templateUrl: 'producto-fotos.html',
-  providers: [ProductoProvider]
+  providers: [MyproductoProvider]
 })
 export class ProductoFotosPage implements OnInit {
 
   public producto: Producto;
   public fotos: Array<Object>;
   public url: string;
+  public delete: boolean;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private productProvider:ProductoProvider,
+    private productProvider:MyproductoProvider,
     private storage:Storage
   ) {
     this.producto = navParams.get('producto');
+    this.delete = navParams.get('delete');
+    console.log(this.delete);
     // console.log(this.producto);
     this.url = "http://byw.from-tn.com/motodream/storage/";
   }

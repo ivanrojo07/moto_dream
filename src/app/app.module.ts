@@ -1,4 +1,9 @@
+import { MyproductosPage } from './../pages/myproductos/myproductos';
 import { Camera } from '@ionic-native/camera';
+import { Network } from '@ionic-native/network';
+import { CallNumber } from '@ionic-native/call-number';
+
+
 import { ProductoFotosFormPage } from './../pages/producto-fotos-form/producto-fotos-form';
 import { ProductoFotosPage } from './../pages/producto-fotos/producto-fotos';
 import { ProductosPage } from './../pages/productos/productos';
@@ -43,6 +48,7 @@ import { ProductoProvider } from '../providers/producto/producto';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosFormPage } from '../pages/productos-form/productos-form';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { MyproductoProvider } from '../providers/myproducto/myproducto';
 
 
 
@@ -68,6 +74,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     MotoPage,
     MotoFormPage,
     ProductosPage,
+    MyproductosPage,
     ProductosFormPage,
     ProductoFotosPage,
     ProductoFotosFormPage,
@@ -104,6 +111,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     MotoPage,
     MotoFormPage,
     ProductosPage,
+    MyproductosPage,
     ProductosFormPage,
     ProductoFotosPage,
     ProductoFotosFormPage,
@@ -119,6 +127,9 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     DomicilioFiscalProvider,
     MotoProvider,
     ProductoProvider,
+    Network,
+    CallNumber,
+    MyproductoProvider,
   ]
 })
 export class AppModule {}

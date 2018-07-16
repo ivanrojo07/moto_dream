@@ -5,6 +5,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { ProductoProvider } from '../../providers/providers';
 import { Storage } from "@ionic/storage";
 import { ProductosFormPage } from '../productos-form/productos-form';
+import { CallNumber } from '@ionic-native/call-number';
 /**
  * Generated class for the ProductosPage page.
  *
@@ -20,7 +21,7 @@ import { ProductosFormPage } from '../productos-form/productos-form';
 })
 export class ProductosPage implements OnInit {
 
-  public productos : Producto[];
+  public productos : any[];
   public messageError : any;
 
   constructor(
@@ -29,6 +30,7 @@ export class ProductosPage implements OnInit {
     private productProvider:ProductoProvider,
     private storage: Storage,
     public alertCtrl: AlertController,
+    private callNumber: CallNumber,
 
   ) {
     this.productos = [];
@@ -58,47 +60,14 @@ export class ProductosPage implements OnInit {
       });
     });
   }
-  openForm(){
-    this.navCtrl.push(ProductosFormPage);
-  }
-  showProducto(producto:Producto){
+
+  public showProducto(producto: Producto) {
     // console.log(producto);
-    this.navCtrl.push(ProductoFotosPage,{'producto':producto});
+    this.navCtrl.push(ProductoFotosPage, { 'producto': producto, 'delete': false });
   }
-  eliminarProducto(prod_id){
-    console.log(prod_id);
-    let alert = this.alertCtrl.create({
-      title: 'Deseas eliminar este producto',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Aceptar',
-          handler: data => {
-            console.log(data);
-            this.storage.get('access_token').then(val => {
-              let token = JSON.parse(val);
-              this.productProvider.deleteProducto(token, prod_id).subscribe(result => { 
-                console.log(result);
-                if (result['message']) {
-                  this.alert('Hecho', result['message']);
-                }
-                this.ionViewWillEnter();
-              },error=>{
-                this.messageError = JSON.parse(error._body)
-                console.log("Error " + JSON.stringify(this.messageError));
-              });
-            });
-          }
-        }
-      ]
-    });
-    alert.present();
+  
+
+  llamar(numero){
     
   }
 

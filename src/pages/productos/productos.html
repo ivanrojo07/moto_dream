@@ -11,12 +11,7 @@
       <ion-icon md="md-menu" ios="ios-menu"></ion-icon>
       <!-- <ion-icon></ion-icon> -->
     </button>
-    <ion-title>Mis Productos</ion-title>
-    <ion-buttons end>
-      <button ion-button color="light" round icon-end icon-only end (click)="openForm()">
-        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-title>Productos</ion-title>
     
     
   </ion-navbar>
@@ -42,19 +37,22 @@
       <p *ngIf="producto.descripcion"><strong>{{producto.descripcion}}</strong></p>
       <p><strong>Cantidad: {{producto.cantidad}}</strong></p>
       <p><strong>Precio: {{producto.precio}}</strong></p>
+      <p *ngIf="producto.producto.nombre">
+        <strong>Tienda: {{producto.producto.nombre}}</strong>
+      </p> 
+      <p *ngIf="producto.producto.username">
+        <strong>Vendedor: {{producto.producto.username}} ({{producto.producto.name}} {{producto.producto.appaterno}} {{producto.producto.apmaterno}})</strong>
+      </p>
       <ion-buttons end>
         <button ion-button color="light" round icon-only end (click)="showProducto(producto)">
-          <!-- Advanced: explicity set the icon for each platform -->
-<!-- Advanced: explicity set the icon for each platform -->
-<ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+          <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
         </button>
-        <!-- <button ion-button color="light" round icon-only end (click)="editMoto(moto)"> -->
-          <!-- Advanced: explicity set the icon for each platform -->
-          <!-- <ion-icon ios="ios-create" md="md-create"></ion-icon> -->
-        <!-- </button> -->
-        <button ion-button color="light" round icon-only end (click)="eliminarProducto(producto.id)">
+        <button ion-button color="light" round icon-only end (click)="llamar(producto.producto.telefono)">
+          <ion-icon ios="ios-call" md="md-call"></ion-icon>
+        </button>
+        <!-- <button ion-button color="light" round icon-only end (click)="eliminarProducto(producto.id)">
           <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-        </button>
+        </button> -->
       </ion-buttons>
     </ion-card-content>
   </ion-card>

@@ -31,58 +31,6 @@ export class ProductoProvider {
 
   }
 
-  setProducto(token,params){
-    let headers = new HttpHeaders({
-      'Content-Type' : 'application/json',
-      'Accept' : 'application/json',
-      'Authorization' : 'Bearer '+token
-    });
-    return this.http.post(this.url,params,{headers:headers});
-  }
-
-  deleteProducto(token,prod_id){
-    let params = {
-      _method : "DELETE"
-    }
-
-    let headers = new HttpHeaders({
-      'Content-Type' : 'application/json',
-      'Accept' : 'application/json',
-      'Authorization' : 'Bearer '+token
-    });
-    return this.http.post(this.url+'/'+prod_id,params,{headers: headers});
-  }
-
-  savePhotoProducto(token,prod_id,images){
-    
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      // 'Accept': 'application/json',
-      'Authorization': 'Bearer ' + token
-    });
-
-    return this.http.post(this.url+'/'+prod_id+'/fotoproducto',images,{headers:headers});
-  }
-
-  getFotos(product_id,token){
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': 'Bearer ' + token
-    });
-    return this.http.get(this.url+'/'+product_id+'/fotoproducto',{headers:headers});
-  }
-
-  deleteImage(producto_id,token,foto_id){
-    let params = {
-      _method: 'DELETE'
-    };
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': 'Bearer ' + token
-    });
-    return this.http.post(this.url + '/' + producto_id + '/fotoproducto/'+foto_id,params,{headers:headers});
-  }
+ 
 
 }

@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-title>Fotos de {{producto.nombre}}</ion-title>
-    <ion-buttons end>
+    <ion-buttons end *ngIf="delete == 'true'">
       <button ion-button color="light" round icon-end icon-only end (click)="openForm()">
         <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
       </button>
@@ -22,7 +22,7 @@
 
   <ion-card *ngFor="let imagen of fotos; let i = index">
 
-    <ion-buttons>
+    <ion-buttons *ngIf="delete == 'true'" >
       <ion-fab right top class="delete">
         <button ion-fab color="danger" mini (click)="deletePhoto(imagen)">
           <ion-icon name="close"></ion-icon>
