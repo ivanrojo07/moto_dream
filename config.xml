@@ -11,6 +11,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <preference name="orientation" value="portrait" />
+    <preference name="YouTubeDataApiKey" value="AIzaSyDBkjIOXvW9lhje369JKSdGpjoJwTXlBCE" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
@@ -94,6 +96,7 @@
     <plugin name="cordova-plugin-appcenter-analytics" spec="^0.1.6" />
     <plugin name="cordova-plugin-appcenter-crashes" spec="^0.1.6" />
     <plugin name="cordova-plugin-appcenter-push" spec="^0.1.6" />
+    <plugin name="cordova-plugin-youtube-video-player" spec="^1.0.6" />
     <engine name="android" spec="6.2.3" />
     <engine name="ios" spec="4.5.4" />
 </widget>

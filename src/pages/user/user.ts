@@ -37,14 +37,12 @@ export class UserPage implements OnInit {
     const loader = this.loadingCtrl.create({content:'Cargando...'});
     loader.present();
     this.storage.get("access_token").then((val)=>{
-      // console.log("TOKEN: "+val);
       this.access_token = val;
       if(this.access_token == null || this.access_token == "" ){
-        // console.log(this.access_token);
+
         
       }
       else{
-        // console.log(this.access_token);
         this._usuarioService.getUsuario(this.access_token).subscribe(result=>{
         this.usuario.id = result.id;
         this.usuario.username = result.username;
@@ -54,8 +52,6 @@ export class UserPage implements OnInit {
         this.usuario.email = result.email;
         this.usuario.telefono = result.telefono;
         loader.dismiss();
-        // this.usuario.name = result.name;
-
       });
       }
       console.log("USUARIO"+this.usuario);

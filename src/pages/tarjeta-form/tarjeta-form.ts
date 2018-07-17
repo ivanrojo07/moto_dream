@@ -58,9 +58,6 @@ export class TarjetaFormPage {
           }
         }, error => {
           let err = JSON.parse(error._body);
-
-          // let errorMessage = JSON.parse(err._body);
-
           formTarjeta.setValue({
             tipo: "",
             numero: "",

@@ -1,14 +1,14 @@
 webpackJsonp([16],{
 
-/***/ 449:
+/***/ 461:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DomenvioFormPageModule", function() { return DomenvioFormPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DomicilioEnvioPageModule", function() { return DomicilioEnvioPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__domenvio_form__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__domicilio_envio__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var DomenvioFormPageModule = /** @class */ (function () {
-    function DomenvioFormPageModule() {
+var DomicilioEnvioPageModule = /** @class */ (function () {
+    function DomicilioEnvioPageModule() {
     }
-    DomenvioFormPageModule = __decorate([
+    DomicilioEnvioPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__domenvio_form__["a" /* DomenvioFormPage */],
+                __WEBPACK_IMPORTED_MODULE_2__domicilio_envio__["a" /* DomicilioEnvioPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__domenvio_form__["a" /* DomenvioFormPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__domicilio_envio__["a" /* DomicilioEnvioPage */]),
             ],
         })
-    ], DomenvioFormPageModule);
-    return DomenvioFormPageModule;
+    ], DomicilioEnvioPageModule);
+    return DomicilioEnvioPageModule;
 }());
 
-//# sourceMappingURL=domenvio-form.module.js.map
+//# sourceMappingURL=domicilio-envio.module.js.map
 
 /***/ })
 

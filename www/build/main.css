@@ -30706,6 +30706,33 @@ page-domicilio-fiscal .toolbar-title {
   color: #fff;
 }
 
+page-emergencia ion-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png);
+  background-position: center top, center center;
+  background-repeat: no-repeat;
+  background-attachment: absolute;
+  background-size: contain, cover;
+  background-color: #fff;
+  background-position-x: 50%;
+}
+
+page-emergencia ion-icon {
+  color: #A07B13;
+}
+
+page-emergencia .emerdiv {
+  margin-top: 170px;
+}
+
+page-emergencia .emergencia {
+  border-radius: 160px;
+  padding: 0 2.6rem;
+  height: 300px;
+  font-size: 45px;
+}
+
 page-home ion-icon {
   color: #A07B13;
 }
@@ -30811,6 +30838,22 @@ page-login ion-content {
   background-repeat: no-repeat;
   background-attachment: absolute;
   background-size: contain, cover;
+}
+
+page-m-dtv ion-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png);
+  background-position: center top, center center;
+  background-repeat: no-repeat;
+  background-attachment: absolute;
+  background-size: contain, cover;
+  background-color: #fff;
+  background-position-x: 50%;
+}
+
+page-m-dtv ion-icon {
+  color: #A07B13;
 }
 
 page-motos ion-content {

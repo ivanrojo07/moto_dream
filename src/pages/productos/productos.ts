@@ -68,7 +68,6 @@ export class ProductosPage implements OnInit {
   }
 
   public showProducto(producto: Producto) {
-    // console.log(producto);
     this.navCtrl.push(ProductoFotosPage, { 'producto': producto, 'delete': false });
   }
   

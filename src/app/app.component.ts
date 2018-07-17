@@ -1,3 +1,6 @@
+import { HandbookPage } from './../pages/handbook/handbook';
+import { MDtvPage } from './../pages/m-dtv/m-dtv';
+import { EmergenciaPage } from './../pages/emergencia/emergencia';
 import { ProductosPage } from './../pages/productos/productos';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, MenuController, Events, ToastController } from 'ionic-angular';
@@ -6,7 +9,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { UserPage } from '../pages/user/user';
@@ -44,17 +46,20 @@ export class MyApp {
   
   loggedInPages: PageInterface[] = [
     { title: 'Home', component: UserPage },
-    { title: 'List', component: ListPage },
+    // { title: 'List', component: ListPage },
+    { title: 'MDtv', component: MDtvPage},
+    { title: 'Handbook', component: HandbookPage},
     { title: "Ajustes", component: SettingPage},
     { title: "Acerca de nosotros", component: AboutPage},
     { title: "Aviso Legal y de privacidad", component: DisclaimerPage},
     { title: "Mis motos", component: MotosPage },
     { title: 'Mis productos', component: MyproductosPage},
     { title: 'Productos', component: ProductosPage },
+    { title: 'Emergencias',component:EmergenciaPage},
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Home', component: HomePage },
-    { title: 'List', component: ListPage },
+    // { title: 'List', component: ListPage },
     { title: 'Registrate', component:RegisterPage},
     { title: 'Inicia sesión', component:LoginPage},
     { title: 'Acerca de nosotros', component: AboutPage},

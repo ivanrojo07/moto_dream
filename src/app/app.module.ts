@@ -1,3 +1,6 @@
+import { HandbookPage } from './../pages/handbook/handbook';
+import { MDtvPage } from './../pages/m-dtv/m-dtv';
+import { EmergenciaPage } from './../pages/emergencia/emergencia';
 import { MyproductosPage } from './../pages/myproductos/myproductos';
 import { Camera } from '@ionic-native/camera';
 import { Network } from '@ionic-native/network';
@@ -49,6 +52,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductosFormPage } from '../pages/productos-form/productos-form';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { MyproductoProvider } from '../providers/myproducto/myproducto';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { HandbookProvider } from '../providers/handbook/handbook';
 
 
 
@@ -78,6 +83,9 @@ import { MyproductoProvider } from '../providers/myproducto/myproducto';
     ProductosFormPage,
     ProductoFotosPage,
     ProductoFotosFormPage,
+    EmergenciaPage,
+    MDtvPage,
+    HandbookPage,
   ],
   imports: [
     BrowserModule,
@@ -115,6 +123,9 @@ import { MyproductoProvider } from '../providers/myproducto/myproducto';
     ProductosFormPage,
     ProductoFotosPage,
     ProductoFotosFormPage,
+    EmergenciaPage,
+    MDtvPage,
+    HandbookPage,
   ],
   providers: [
     StatusBar,
@@ -130,6 +141,8 @@ import { MyproductoProvider } from '../providers/myproducto/myproducto';
     Network,
     CallNumber,
     MyproductoProvider,
+    YoutubeVideoPlayer,
+    HandbookProvider,
   ]
 })
 export class AppModule {}
