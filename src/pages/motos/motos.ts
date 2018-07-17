@@ -1,7 +1,7 @@
 import { MotoFormPage } from './../moto-form/moto-form';
 import { MotoPage } from './../moto/moto';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { MotoProvider } from '../../providers/providers';
 import { Moto } from "../../models/moto";
 import { Storage } from "@ionic/storage";
@@ -29,6 +29,8 @@ export class MotosPage implements OnInit{
     private provider: MotoProvider,
     private storage: Storage,
     public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController,
+
   ) {
     this.motos = [];
     this.messageError = null;
@@ -50,16 +52,22 @@ export class MotosPage implements OnInit{
   }
 
   showMotos(){
+    const loader = this.loadingCtrl.create({
+      content: 'Cargando...'
+    });
+    loader.present();
     this.storage.get('access_token').then(val=>{
       let token = JSON.parse(val);
       this.provider.getMotos(token).subscribe(result =>{
         console.log(result);
         this.motos = result.motos;
         console.log(this.motos);
+        loader.dismiss();
         this.messageError=null;
       },error=>{
         this.messageError = JSON.parse(error);
         console.log("Error "+JSON.stringify(this.messageError));
+        loader.dismiss();
       });
     });
   }

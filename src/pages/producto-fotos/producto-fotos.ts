@@ -3,7 +3,7 @@ import { OnInit } from '@angular/core';
 import { Producto } from './../../models/producto';
 import { ProductoFotosFormPage } from './../producto-fotos-form/producto-fotos-form';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 
 /**
@@ -30,7 +30,9 @@ export class ProductoFotosPage implements OnInit {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private productProvider:MyproductoProvider,
-    private storage:Storage
+    private storage:Storage,
+    public loadingCtrl: LoadingController
+
   ) {
     this.producto = navParams.get('producto');
     this.delete = navParams.get('delete');
@@ -56,6 +58,10 @@ export class ProductoFotosPage implements OnInit {
     this.navCtrl.push(ProductoFotosFormPage,{'producto':this.producto});
   }
   showFotos(id){
+    const loader = this.loadingCtrl.create({
+      content : 'Cargando...'
+    });
+    loader.present();
     this.storage.get('access_token').then(val=>{
       let token = JSON.parse(val);
       this.productProvider.getFotos(id,token).subscribe(result=>{
@@ -63,8 +69,10 @@ export class ProductoFotosPage implements OnInit {
         // result.
         this.fotos = result['fotos'];
         console.log(this.fotos);
+        loader.dismiss();
       },error=>{
         console.log(error);
+        loader.dismiss();
       });
     });
   }

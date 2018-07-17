@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { DomFiscal } from '../../models/domicilio-fiscal';
 import { DomicilioFiscalProvider } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
@@ -29,6 +29,8 @@ export class DomicilioFiscalPage implements OnInit {
     public storage: Storage,
     private domicilioProvider: DomicilioFiscalProvider,
     public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController
+
   ) {
     this.dirFiscal = new DomFiscal(null, "", "", "", "", "", "", "", "");
     this.messageError = null;
@@ -47,15 +49,21 @@ export class DomicilioFiscalPage implements OnInit {
     console.log('ionViewDidLoad DomicilioFiscalPage');
   }
   showDireccion() {
+    const loader = this.loadingCtrl.create({
+      content:'Cargando...'
+    });
+    loader.present();
     this.storage.get("access_token").then((val) => {
       let token = JSON.parse(val);
       this.domicilioProvider.getDomicilio(token).subscribe(result => {
         console.log(result.domicilio);
         this.dirFiscal = result.domicilio;
+        loader.dismiss();
         this.messageError == null
         console.log(this.dirFiscal)
       }, error => {
-        this.messageError = JSON.parse(error._body)
+        this.messageError = JSON.parse(error._body);
+        loader.dismiss();
         console.log("Error " + JSON.stringify(this.messageError));
       });
     });

@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Usuario } from '../../models/usuario';
 import { UsuarioProvider } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
@@ -25,6 +25,8 @@ export class UserPage implements OnInit {
     public navParams: NavParams,
     private _usuarioService: UsuarioProvider,
     private storage: Storage,
+    public loadingCtrl: LoadingController
+
     
   ) {
     this.usuario = new Usuario(null,'','','','','','','');
@@ -32,6 +34,8 @@ export class UserPage implements OnInit {
     
   }
   ngOnInit(){
+    const loader = this.loadingCtrl.create({content:'Cargando...'});
+    loader.present();
     this.storage.get("access_token").then((val)=>{
       // console.log("TOKEN: "+val);
       this.access_token = val;
@@ -49,6 +53,7 @@ export class UserPage implements OnInit {
         this.usuario.apmaterno = result.apmaterno;
         this.usuario.email = result.email;
         this.usuario.telefono = result.telefono;
+        loader.dismiss();
         // this.usuario.name = result.name;
 
       });

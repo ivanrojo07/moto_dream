@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { TarjetaProvider } from "../../providers/providers";
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { Tarjeta } from "../../models/tarjeta";
 import { Storage } from "@ionic/storage";
 import { TarjetaFormPage } from "../tarjeta-form/tarjeta-form";
@@ -28,7 +28,9 @@ export class TarjetaPage implements OnInit {
     public navParams: NavParams,
     public tarjetaProvider: TarjetaProvider,
     public storage: Storage,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController
+
   ) {
     this.tarjetas = [];
     this.messageError = null
@@ -39,15 +41,19 @@ export class TarjetaPage implements OnInit {
     this.showTarjetas();
   }
   showTarjetas(){
+    const loader = this.loadingCtrl.create({content:'Cargando...'});
+    loader.present();
     this.storage.get("access_token").then((val)=>{
       let token = JSON.parse(val);
       this.tarjetaProvider.getTarjetas(token).subscribe(result=>{
         this.tarjetas = result.tarjetas;
         this.messageError = null;
+        loader.dismiss();
       },
       error=>{
         this.messageError = JSON.parse(error._body);
         console.log('Error'+JSON.stringify(this.messageError));
+        loader.dismiss();
       });
     });
   }

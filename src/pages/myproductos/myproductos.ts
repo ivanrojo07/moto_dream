@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { Producto } from '../../models/producto';
 import { MyproductoProvider } from '../../providers/providers';
 import { ProductosFormPage } from '../productos-form/productos-form';
@@ -29,6 +29,7 @@ export class MyproductosPage implements OnInit {
     private productProvider: MyproductoProvider,
     private storage: Storage,
     public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController
   ) {
     this.productos = [];
     this.messageError = null;
@@ -44,16 +45,22 @@ export class MyproductosPage implements OnInit {
   }
 
   showProductos() {
+    const loader = this.loadingCtrl.create({
+      content: "Cargando...",
+    });
+    loader.present();
     this.storage.get('access_token').then(val => {
       let token = JSON.parse(val);
       this.productProvider.getProductos(token).subscribe(result => {
         // console.log(result);
         this.productos = result['productos'];
+        loader.dismiss();
         console.log(this.productos);
         this.messageError = null;
       }, error => {
         this.messageError = JSON.parse(error);
         console.log("Error " + JSON.stringify(this.messageError));
+        loader.dismiss();
       });
     });
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { DomEnvio } from '../../models/domicilio-envio';
 import { DomicilioEnvioProvider } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
@@ -28,7 +28,9 @@ export class DomicilioEnvioPage implements OnInit {
     public navParams: NavParams,
     public storage: Storage,
     public alertCtrl: AlertController,
-    public direccionProvider: DomicilioEnvioProvider
+    public direccionProvider: DomicilioEnvioProvider,
+    public loadingCtrl: LoadingController
+
   ) {
     this.domicilios = [];
     this.messageError = null;
@@ -50,16 +52,22 @@ export class DomicilioEnvioPage implements OnInit {
   }
 
   showDirecciones() {
+    const loader = this.loadingCtrl.create({
+      content:'Cargando...'
+    });
+    loader.present()
     this.storage.get("access_token").then((val) => {
       let token = JSON.parse(val);
       this.direccionProvider.getDomicilios(token).subscribe(result => {
         console.log(result);
         this.domicilios = result.domicilio;
         console.log(this.domicilios);
+        loader.dismiss();
         this.messageError = null
       }, error => {
         this.messageError = JSON.parse(error._body)
         console.log("Error " + JSON.stringify(this.messageError));
+        loader.dismiss();
       });
     });
   }
