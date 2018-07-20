@@ -1,4 +1,3 @@
-import { NgForm } from '@angular/forms';
 import { Producto } from './../../models/producto';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';

@@ -20,7 +20,7 @@ import { SettingPage } from '../pages/setting/setting';
 import { AboutPage } from '../pages/about/about';
 import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 import { MotosPage } from '../pages/motos/motos';
-import { Network } from '../../node_modules/@ionic-native/network';
+import { Network } from '@ionic-native/network';
 import { MyproductosPage } from '../pages/myproductos/myproductos';
 
 

@@ -54,7 +54,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { MyproductoProvider } from '../providers/myproducto/myproducto';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { HandbookProvider } from '../providers/handbook/handbook';
-
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 
 @NgModule({
@@ -143,6 +144,8 @@ import { HandbookProvider } from '../providers/handbook/handbook';
     MyproductoProvider,
     YoutubeVideoPlayer,
     HandbookProvider,
+    FileTransfer,
+    File,
   ]
 })
 export class AppModule {}

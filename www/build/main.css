@@ -30733,6 +30733,28 @@ page-emergencia .emergencia {
   font-size: 45px;
 }
 
+page-handbook ion-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png);
+  background-position: center top, center center;
+  background-repeat: no-repeat;
+  background-attachment: absolute;
+  background-size: contain, cover;
+  background-color: #fff;
+  background-position-x: 50%;
+}
+
+page-handbook ion-content ion-card ion-card-content ion-card-header {
+  word-wrap: break-word !important;
+  text-overflow: ellipsis;
+  white-space: inherit;
+}
+
+page-handbook ion-icon {
+  color: #A07B13;
+}
+
 page-home ion-icon {
   color: #A07B13;
 }
