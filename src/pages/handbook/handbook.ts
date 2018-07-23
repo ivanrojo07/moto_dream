@@ -51,7 +51,7 @@ export class HandbookPage implements OnInit {
         this.storageDirectory = this.file.documentsDirectory;
       }
       else if (this.platform.is('android')) {
-        this.storageDirectory = this.file.externalRootDirectory+'Document/';
+        this.storageDirectory = this.file.externalRootDirectory+'Download/';
         console.log(this.storageDirectory);
       }
       else {
@@ -87,13 +87,18 @@ export class HandbookPage implements OnInit {
   }
   public download(handbook:any){
     console.log(handbook);
+    const loader = this.loadingController.create({
+      content: "Descargando.."
+    });
+    loader.present();
     const fileTransfer: FileTransferObject = this.transfer.create();
     const url = 'http://byw.from-tn.com/motodream/storage/handbook/' + handbook['path'];
     fileTransfer.download(url, this.storageDirectory+handbook['path']).then((entry) => {
       console.log('download complete: ' + entry.toURL());
+      loader.dismiss();
       const alertSuccess = this.alertCtrl.create({
-        title: `Download Succeeded!`,
-        subTitle: `${handbook['path']} was successfully downloaded to: ${entry.toURL()}`,
+        title: `¡Descarga correcta!`,
+        subTitle: `${handbook['path']} fue descargada correctamente en el directorio Download`,
         buttons: ['Ok']
       });
 
