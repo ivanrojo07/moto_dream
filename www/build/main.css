@@ -31003,6 +31003,27 @@ page-register ion-content {
   background-size: contain, cover;
 }
 
+page-rutas ion-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png);
+  background-position: center top, center center;
+  background-repeat: no-repeat;
+  background-attachment: absolute;
+  background-size: contain, cover;
+  background-color: #fff;
+  background-position-x: 50%;
+}
+
+page-rutas ion-icon {
+  color: #A07B13;
+}
+
+page-rutas #map {
+  width: 100%;
+  height: 300px;
+}
+
 page-setting ion-content {
   padding-top: 40px;
   padding-bottom: 40px;

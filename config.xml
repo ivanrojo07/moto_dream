@@ -3,7 +3,7 @@
     <name>dream_moto</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.1.69:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -96,5 +96,15 @@
     <plugin name="cordova-plugin-youtube-video-player" spec="~1.0.6" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To track you routes" />
+    </plugin>
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.3.8">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDBkjIOXvW9lhje369JKSdGpjoJwTXlBCE" />
+        <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="26.1.0" />
+        <variable name="API_KEY_FOR_IOS" value="(API_KEY_FOR_IOS)" />
+    </plugin>
     <engine name="android" spec="6.3.0" />
 </widget>

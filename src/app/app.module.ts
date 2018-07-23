@@ -56,6 +56,8 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { HandbookProvider } from '../providers/handbook/handbook';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import { Geolocation } from '@ionic-native/geolocation';
+import { RutasPage } from '../pages/rutas/rutas';
 
 
 @NgModule({
@@ -87,6 +89,7 @@ import { File } from '@ionic-native/file';
     EmergenciaPage,
     MDtvPage,
     HandbookPage,
+    RutasPage,
   ],
   imports: [
     BrowserModule,
@@ -127,6 +130,7 @@ import { File } from '@ionic-native/file';
     EmergenciaPage,
     MDtvPage,
     HandbookPage,
+    RutasPage,
   ],
   providers: [
     StatusBar,
@@ -146,6 +150,7 @@ import { File } from '@ionic-native/file';
     HandbookProvider,
     FileTransfer,
     File,
+    Geolocation,
   ]
 })
 export class AppModule {}

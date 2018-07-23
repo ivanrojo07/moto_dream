@@ -1,3 +1,4 @@
+import { RutasPage } from './../pages/rutas/rutas';
 import { HandbookPage } from './../pages/handbook/handbook';
 import { MDtvPage } from './../pages/m-dtv/m-dtv';
 import { EmergenciaPage } from './../pages/emergencia/emergencia';
@@ -56,6 +57,7 @@ export class MyApp {
     { title: 'Mis productos', component: MyproductosPage},
     { title: 'Productos', component: ProductosPage },
     { title: 'Emergencias',component:EmergenciaPage},
+    { title: 'Rutas', component:RutasPage},
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Home', component: HomePage },

@@ -52,7 +52,7 @@ export class HandbookPage implements OnInit {
       }
       else if (this.platform.is('android')) {
         this.storageDirectory = this.file.externalRootDirectory+'Download/';
-        console.log(this.storageDirectory);
+        // console.log(this.storageDirectory);
       }
       else {
         // exit otherwise, but you could add further types here e.g. Windows
@@ -105,8 +105,16 @@ export class HandbookPage implements OnInit {
       alertSuccess.present();
     }, (error) => {
       // handle error
+      loader.dismiss();
+      const alertError = this.alertCtrl.create({
+        title: `¡Error!`,
+        subTitle: `Error al descargar el manual, por favor intentelo más tarde`,
+        buttons: ['Ok']
+      });
       console.log(error);
+      alertError.present();
     });
+
   }
  
 }
