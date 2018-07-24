@@ -1803,30 +1803,103 @@ var RutasPage = /** @class */ (function () {
         var _this = this;
         console.log('ionViewDidLoad RutasPage');
         this.plt.ready().then(function () {
-            // this.loadHistoricRoutes();
-            var mapOptions = {
-                zoom: 13,
-                mapTypeControl: false,
-                streetViewControl: false,
-                fullscreenControl: false
-            };
-            _this.map = __WEBPACK_IMPORTED_MODULE_4__ionic_native_google_maps__["a" /* GoogleMaps */].create(_this.mapElement.nativeElement, mapOptions);
-            _this.geolocation.getCurrentPosition().then(function (pos) {
-                console.log(pos);
-                var latLng = new __WEBPACK_IMPORTED_MODULE_4__ionic_native_google_maps__["b" /* LatLng */](pos.coords.latitude, pos.coords.longitude);
-                console.log(latLng);
-                _this.map.setCameraTarget(latLng);
-                _this.map.addMarker({
-                    title: '@ionic-native/google-maps',
-                    icon: 'blue',
-                    animation: 'DROP',
-                    position: latLng
-                });
-                _this.map.setCameraZoom(16);
-            }).catch(function (error) {
-                console.log('error tomando la locación', error);
-            });
+            _this.initMap();
         });
+    };
+    RutasPage.prototype.initMap = function () {
+        var _this = this;
+        this.loadHistoricRoutes();
+        var mapOptions = {
+            zoom: 13,
+            mapTypeControl: false,
+            streetViewControl: false,
+            fullscreenControl: false
+        };
+        this.map = __WEBPACK_IMPORTED_MODULE_4__ionic_native_google_maps__["a" /* GoogleMaps */].create(this.mapElement.nativeElement, mapOptions);
+        this.geolocation.getCurrentPosition().then(function (pos) {
+            console.log(pos);
+            var latLng = new __WEBPACK_IMPORTED_MODULE_4__ionic_native_google_maps__["b" /* LatLng */](pos.coords.latitude, pos.coords.longitude);
+            console.log(latLng);
+            _this.map.setCameraTarget(latLng);
+            _this.map.setCameraZoom(16);
+            // this.map.addMarker({
+            //   title: '@ionic-native/google-maps',
+            //   icon: 'blue',
+            //   animation: 'DROP',
+            //   position: latLng
+            // });
+        }).catch(function (error) {
+            console.log('error tomando la locación', error);
+        });
+    };
+    RutasPage.prototype.startTracking = function () {
+        var _this = this;
+        this.isTracking = true;
+        this.trackedRoute = [];
+        this.positionSubscription = this.geolocation.watchPosition()
+            .subscribe(function (data) {
+            console.log(data);
+            setTimeout(function () {
+                _this.trackedRoute.push({ lat: data.coords.latitude, lng: data.coords.longitude });
+                _this.redrawPath(_this.trackedRoute);
+                console.log(_this.trackedRoute);
+            }, 0);
+        });
+    };
+    RutasPage.prototype.redrawPath = function (path) {
+        if (this.currentMapTrack) {
+            // this.currentMapTrack.setMap(null);
+        }
+        if (path.length > 1) {
+            this.currentMapTrack = this.map.addPolylineSync({
+                points: path,
+                color: '#AA00FF',
+                width: 10,
+                geodesic: true,
+                strokeColor: '#ff00ff',
+                strokeOpacity: 1.0,
+                strokeWeight: 3
+                // clickable: true  // clickable = false in default
+            });
+            console.log(this.currentMapTrack);
+            // new google.maps.Polyline({
+            //   path: path,
+            //   geodesic: true,
+            //   strokeColor: '#ff00ff',
+            //   strokeOpacity: 1.0,
+            //   strokeWeight: 3
+            // });
+            // this.currentMapTrack.setMap(this.map);
+        }
+    };
+    RutasPage.prototype.stopTracking = function () {
+        var newRoute = {
+            finished: new Date().getTime(),
+            path: this.trackedRoute
+        };
+        this.previousTracks.push(newRoute);
+        this.storage.set('routes', this.previousTracks);
+        this.isTracking = false;
+        this.positionSubscription.unsubscribe();
+        this.map.clear();
+        this.storage.get('routes').then(function (val) {
+            console.log(val);
+        });
+    };
+    RutasPage.prototype.loadHistoricRoutes = function () {
+        var _this = this;
+        this.storage.get('routes').then(function (data) {
+            if (data) {
+                _this.previousTracks = data;
+            }
+        });
+    };
+    RutasPage.prototype.showHistoryRoute = function (route) {
+        this.map.clear();
+        this.redrawPath(route);
+    };
+    RutasPage.prototype.ionViewCanEnter = function () {
+        this.ionViewDidLoad();
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('map'),
@@ -1834,7 +1907,7 @@ var RutasPage = /** @class */ (function () {
     ], RutasPage.prototype, "mapElement", void 0);
     RutasPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-rutas',template:/*ion-inline-start:"C:\Users\Ivan Rojo\Desktop\moto_dream\src\pages\rutas\rutas.html"*/'<!--\n  Generated template for the RutasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only class="menu">\n      <ion-icon md="md-menu" ios="ios-menu"></ion-icon>\n      <!-- <ion-icon></ion-icon> -->\n    </button>\n    <ion-title>Rutas</ion-title>\n    <ion-buttons end>\n      <button ion-button clear end>\n        <ion-icon>\n          <img src="assets/imgs/dibujoarriba.png" alt="dream moto" width="25" height="25" />\n        </ion-icon>\n      </button>\n    </ion-buttons>\n\n\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding scroll="false" class="backgroud">\n  <!-- <button ion-button full icon-left (click)="startTracking()" *ngIf="!isTracking">\n    <ion-icon name="locate"></ion-icon>\n    Start Tracking\n  </button>\n  <button ion-button full color="danger" icon-left (click)="stopTracking()" *ngIf="isTracking">\n    <ion-icon name="hand"></ion-icon>\n    Stop Tracking\n  </button> -->\n\n  <div #map id="map"></div>\n\n  <!-- <ion-list>\n    <ion-list-header>Previous Tracks</ion-list-header>\n    <ion-item *ngFor="let route of previousTracks">\n      {{ route.finished | date }}, {{ route.path.length }} Waypoints\n      <button ion-button clear item-end (click)="showHistoryRoute(route.path)">View Route</button>\n    </ion-item>\n  </ion-list> -->\n</ion-content>'/*ion-inline-end:"C:\Users\Ivan Rojo\Desktop\moto_dream\src\pages\rutas\rutas.html"*/,
+            selector: 'page-rutas',template:/*ion-inline-start:"C:\Users\Ivan Rojo\Desktop\moto_dream\src\pages\rutas\rutas.html"*/'<!--\n  Generated template for the RutasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only class="menu">\n      <ion-icon md="md-menu" ios="ios-menu"></ion-icon>\n      <!-- <ion-icon></ion-icon> -->\n    </button>\n    <ion-title>Rutas</ion-title>\n    <ion-buttons end>\n      <button ion-button clear end>\n        <ion-icon>\n          <img src="assets/imgs/dibujoarriba.png" alt="dream moto" width="25" height="25" />\n        </ion-icon>\n      </button>\n    </ion-buttons>\n\n\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding scroll="false" class="backgroud">\n  <div #map id="map"></div>\n  <button ion-button full icon-left (click)="startTracking()" *ngIf="!isTracking">\n    <ion-icon name="locate"></ion-icon>\n    Start Tracking\n  </button>\n  <button ion-button full color="danger" icon-left (click)="stopTracking()" *ngIf="isTracking">\n    <ion-icon name="hand"></ion-icon>\n    Stop Tracking\n  </button>\n\n\n  <ion-list>\n    <ion-list-header>Previous Tracks</ion-list-header>\n    <ion-item *ngFor="let route of previousTracks">\n      {{ route.finished | date }}, {{ route.path.length }} Waypoints\n      <button ion-button clear item-end (click)="showHistoryRoute(route.path)">View Route</button>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\Users\Ivan Rojo\Desktop\moto_dream\src\pages\rutas\rutas.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["r" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["s" /* NavParams */],

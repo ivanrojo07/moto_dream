@@ -25,22 +25,22 @@
 
 
 <ion-content padding scroll="false" class="backgroud">
-  <!-- <button ion-button full icon-left (click)="startTracking()" *ngIf="!isTracking">
+  <div #map id="map"></div>
+  <button ion-button full icon-left (click)="startTracking()" *ngIf="!isTracking">
     <ion-icon name="locate"></ion-icon>
     Start Tracking
   </button>
   <button ion-button full color="danger" icon-left (click)="stopTracking()" *ngIf="isTracking">
     <ion-icon name="hand"></ion-icon>
     Stop Tracking
-  </button> -->
+  </button>
 
-  <div #map id="map"></div>
 
-  <!-- <ion-list>
+  <ion-list>
     <ion-list-header>Previous Tracks</ion-list-header>
     <ion-item *ngFor="let route of previousTracks">
       {{ route.finished | date }}, {{ route.path.length }} Waypoints
       <button ion-button clear item-end (click)="showHistoryRoute(route.path)">View Route</button>
     </ion-item>
-  </ion-list> -->
+  </ion-list>
 </ion-content>

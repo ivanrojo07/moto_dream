@@ -3,6 +3,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Subscription } from 'rxjs/Subscription';
+import { filter } from 'rxjs/operators';
 import {
   GoogleMaps,
   GoogleMap,
@@ -13,6 +14,7 @@ import {
   Marker,
   LatLng
 } from '@ionic-native/google-maps';
+import { filterQueryId } from '../../../node_modules/@angular/core/src/view/util';
 
 /**
  * Generated class for the RutasPage page.
@@ -53,8 +55,12 @@ export class RutasPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RutasPage');
     this.plt.ready().then(()=>{
+      this.initMap();
       
-      // this.loadHistoricRoutes();
+    })
+  }
+  initMap(){
+    this.loadHistoricRoutes();
       
       let mapOptions: GoogleMapOptions = {
         zoom:13,
@@ -71,19 +77,91 @@ export class RutasPage {
         let latLng = new LatLng(pos.coords.latitude, pos.coords.longitude);
         console.log(latLng);
         this.map.setCameraTarget(latLng);
-        this.map.addMarker({
-          title: '@ionic-native/google-maps',
-          icon: 'blue',
-          animation: 'DROP',
-          position: latLng
-          
-        }
-);
         this.map.setCameraZoom(16);
+        // this.map.addMarker({
+        //   title: '@ionic-native/google-maps',
+        //   icon: 'blue',
+        //   animation: 'DROP',
+        //   position: latLng
+          
+        // });
       }).catch(error=>{
         console.log('error tomando la locación',error);
       })
-    })
+  }
+
+  startTracking(){
+    this.isTracking=true;
+    this.trackedRoute=[];
+    this.positionSubscription = this.geolocation.watchPosition()
+      // .pipe(
+      //   filter((p)=>{ p.coords == undefined})
+      // )
+      .subscribe(data=>{
+        console.log(data);
+        setTimeout(() => {
+          this.trackedRoute.push({ lat: data.coords.latitude, lng: data.coords.longitude });
+          this.redrawPath(this.trackedRoute);
+          console.log(this.trackedRoute);
+        }, 0);
+      });
+  }
+  redrawPath(path){
+    if (this.currentMapTrack) {
+      // this.currentMapTrack.setMap(null);
+    }
+
+    if (path.length > 1) {
+      this.currentMapTrack = this.map.addPolylineSync({
+        points: path,
+        color: '#AA00FF',
+        width: 10,
+        geodesic: true,
+        strokeColor: '#ff00ff',
+        strokeOpacity: 1.0,
+        strokeWeight: 3
+        // clickable: true  // clickable = false in default
+      }) ;
+
+      console.log(this.currentMapTrack);
+      // new google.maps.Polyline({
+      //   path: path,
+      //   geodesic: true,
+      //   strokeColor: '#ff00ff',
+      //   strokeOpacity: 1.0,
+      //   strokeWeight: 3
+      // });
+      // this.currentMapTrack.setMap(this.map);
+    }
+  }
+  stopTracking(){
+    let newRoute = { 
+      finished: new Date().getTime(), 
+      path: this.trackedRoute
+    };
+    this.previousTracks.push(newRoute);
+    this.storage.set('routes', this.previousTracks);
+    this.isTracking = false;
+    this.positionSubscription.unsubscribe();
+    this.map.clear();
+    this.storage.get('routes').then(val=>{
+      console.log(val);
+    });
+
+  }
+  loadHistoricRoutes() {
+    this.storage.get('routes').then(data => {
+      if (data) {
+        this.previousTracks = data;
+      }
+    });
+  }
+  showHistoryRoute(route) {
+    this.map.clear();
+    this.redrawPath(route);
+  }
+  ionViewCanEnter(){
+   this.ionViewDidLoad();
   }
 
 }
