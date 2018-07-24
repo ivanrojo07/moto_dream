@@ -91,6 +91,7 @@ export class RutasPage {
   }
 
   startTracking(){
+    this.map.clear();
     this.isTracking=true;
     this.trackedRoute=[];
     this.positionSubscription = this.geolocation.watchPosition()
