@@ -58,6 +58,7 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Geolocation } from '@ionic-native/geolocation';
 import { RutasPage } from '../pages/rutas/rutas';
+import { RutasMapPage } from '../pages/rutas-map/rutas-map';
 
 
 @NgModule({
@@ -90,6 +91,7 @@ import { RutasPage } from '../pages/rutas/rutas';
     MDtvPage,
     HandbookPage,
     RutasPage,
+    RutasMapPage,
   ],
   imports: [
     BrowserModule,
@@ -131,6 +133,7 @@ import { RutasPage } from '../pages/rutas/rutas';
     MDtvPage,
     HandbookPage,
     RutasPage,
+    RutasMapPage,
   ],
   providers: [
     StatusBar,

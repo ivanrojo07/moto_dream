@@ -7,7 +7,8 @@ page-rutas {
   ion-content {
     padding-top: 40px;
     padding-bottom: 40px;
-    background-image: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png);
+    background-color: gray;
+    background: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png);
     background-position: center top, center center;
     background-repeat: no-repeat;
     background-attachment: absolute;

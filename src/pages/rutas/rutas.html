@@ -6,13 +6,13 @@
 -->
 <ion-header no-border>
   <ion-navbar>
-    <button ion-button menuToggle icon-only class="menu">
+    <button ion-button menuToggle icon-only class="menu" *ngIf="!isTracking">
       <ion-icon md="md-menu" ios="ios-menu"></ion-icon>
       <!-- <ion-icon></ion-icon> -->
     </button>
     <ion-title>Rutas</ion-title>
     <ion-buttons end>
-      <button ion-button clear end>
+      <button ion-button clear end (click)="crearRuta()">
         <ion-icon>
           <img src="assets/imgs/dibujoarriba.png" alt="dream moto" width="25" height="25" />
         </ion-icon>
@@ -24,23 +24,18 @@
 </ion-header>
 
 
-<ion-content padding scroll="false" class="backgroud">
-  <div #map id="map"></div>
-  <button ion-button full icon-left (click)="startTracking()" *ngIf="!isTracking">
-    <ion-icon name="locate"></ion-icon>
-    Start Tracking
-  </button>
-  <button ion-button full color="danger" icon-left (click)="stopTracking()" *ngIf="isTracking">
-    <ion-icon name="hand"></ion-icon>
-    Stop Tracking
-  </button>
-
-
-  <ion-list>
-    <ion-list-header>Previous Tracks</ion-list-header>
-    <ion-item *ngFor="let route of previousTracks">
-      {{ route.finished | date }}, {{ route.path.length }} Waypoints
-      <button ion-button clear item-end (click)="showHistoryRoute(route.path)">View Route</button>
-    </ion-item>
-  </ion-list>
+<ion-content padding scroll="false">
+  <!-- <div #map id="map"></div> -->
+  <div class="background">
+  
+  
+    <ion-list>
+      <ion-list-header>Previous Tracks</ion-list-header>
+      <ion-item *ngFor="let route of previousTracks">
+        {{ route.finished | date }}, {{ route.path.length }} Puntos
+        <button ion-button clear item-end (click)="openMap(route.path)">View Route</button>
+      </ion-item>
+    </ion-list>
+    
+  </div>
 </ion-content>
