@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 import { filter } from 'rxjs/operators';
 import { GoogleMaps, GoogleMapOptions, LatLng } from '@ionic-native/google-maps';
+import { RutaUsuarioProvider } from '../../providers/providers';
 
 /**
  * Generated class for the RutasMapPage page.
@@ -17,6 +18,7 @@ import { GoogleMaps, GoogleMapOptions, LatLng } from '@ionic-native/google-maps'
 @Component({
   selector: 'page-rutas-map',
   templateUrl: 'rutas-map.html',
+  providers: [RutaUsuarioProvider],
 })
 export class RutasMapPage {
 
@@ -37,7 +39,7 @@ export class RutasMapPage {
     private plt: Platform,
     private geolocation: Geolocation,
     private storage: Storage,
-    
+    private rutasProvider:RutaUsuarioProvider,
   ) {
     this.currentMapTrack = null;
     this.isTracking = false;
@@ -74,11 +76,37 @@ export class RutasMapPage {
 
     let mapOptions: GoogleMapOptions = {
       zoom: 13,
+      mapType: 'MAP_TYPE_HYBRID',
+
+      controls: {
+        'compass': true,
+        'myLocationButton': true,
+        'myLocation': true,   // (blue dot)
+        'indoorPicker': true,
+        // 'zoom': true,          // android only
+        'mapToolbar': true     // android only
+      },
+      preferences: {
+        // zoom: {
+        //   minZoom: 15,
+        //   maxZoom: 18
+        // },
+
+        padding: {
+          left: 2,
+          top: 2,
+          bottom: 2,
+          right: 2
+        },
+
+        building: true
+      },
+
 
       mapTypeControl: false,
       streetViewControl: true,
       fullscreenControl: false,
-      backgroundColor: 'gray',
+
     };
 
     this.map = GoogleMaps.create(this.mapElement.nativeElement, mapOptions);
@@ -86,15 +114,8 @@ export class RutasMapPage {
       console.log(pos);
       let latLng = new LatLng(pos.coords.latitude, pos.coords.longitude);
       console.log(latLng);
-      this.map.setCameraTarget(latLng);
       this.map.setCameraZoom(16);
-      this.map.addMarker({
-        title: '@ionic-native/google-maps',
-        icon: 'blue',
-        // animation: 'DROP',
-        position: latLng
-
-      });
+      this.map.setCameraTarget(latLng);
     }).catch(error => {
       console.log('error tomando la locación', error);
     });
@@ -159,6 +180,14 @@ export class RutasMapPage {
       this.storage.set('routes', this.previousTracks);
       this.storage.get('routes').then(val => {
         console.log(val);
+      });
+      this.storage.get('access_token').then(val=>{
+        let token = JSON.parse(val);
+        this.rutasProvider.setRutaUsuario(token,newRoute).subscribe(result=>{
+          console.log(result);
+        },error=>{
+          console.log(error);
+        })
       });
 
     }

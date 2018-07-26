@@ -59,6 +59,7 @@ import { File } from '@ionic-native/file';
 import { Geolocation } from '@ionic-native/geolocation';
 import { RutasPage } from '../pages/rutas/rutas';
 import { RutasMapPage } from '../pages/rutas-map/rutas-map';
+import { RutaUsuarioProvider } from '../providers/ruta-usuario/ruta-usuario';
 
 
 @NgModule({
@@ -154,6 +155,7 @@ import { RutasMapPage } from '../pages/rutas-map/rutas-map';
     FileTransfer,
     File,
     Geolocation,
+    RutaUsuarioProvider,
   ]
 })
 export class AppModule {}

@@ -1,12 +1,8 @@
 import { RutasMapPage } from './../rutas-map/rutas-map';
 import { Storage } from '@ionic/storage';
-import { Geolocation } from '@ionic-native/geolocation';
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform, ModalController } from 'ionic-angular';
-import { Subscription } from 'rxjs/Subscription';
-import { filter } from 'rxjs/operators';
-import { GoogleMaps,GoogleMapOptions,LatLng } from '@ionic-native/google-maps';
-
+import { RutaUsuarioProvider } from '../../providers/providers';
 /**
  * Generated class for the RutasPage page.
  *
@@ -19,6 +15,7 @@ import { GoogleMaps,GoogleMapOptions,LatLng } from '@ionic-native/google-maps';
 @Component({
   selector: 'page-rutas',
   templateUrl: 'rutas.html',
+  providers: [RutaUsuarioProvider]
 })
 export class RutasPage {
 
@@ -31,7 +28,8 @@ export class RutasPage {
     public navParams: NavParams,
     private plt: Platform,
     private storage: Storage,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private rutaProvider: RutaUsuarioProvider,
   ) {
     this.previousTracks=[];
   }
@@ -51,8 +49,17 @@ export class RutasPage {
     this.storage.get('routes').then(data => {
       if (data) {
         this.previousTracks = data;
+        console.log(this.previousTracks);
       }
     });
+    this.storage.get('access_token').then(val=>{
+      let token = JSON.parse(val);
+      this.rutaProvider.getRutasUsuario(token).subscribe(res=>{
+        console.log(res);
+      },error=>{
+        console.log(error);
+      });
+    })
   }
   
   ionViewCanEnter(){
