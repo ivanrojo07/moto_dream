@@ -31030,8 +31030,8 @@ page-rutas-map ion-icon {
 }
 
 page-rutas-map #map {
-  width: 100%;
-  height: 90%;
+  width: 100% !important;
+  height: 90% !important;
 }
 
 page-setting ion-content {

@@ -27,15 +27,17 @@
 <ion-content padding scroll="false">
   <!-- <div #map id="map"></div> -->
   <div class="background">
-  
-  
+
+
     <ion-list>
       <ion-list-header>Previous Tracks</ion-list-header>
       <ion-item *ngFor="let route of previousTracks">
-        {{ route.finished | date }}, {{ route.path.length }} Puntos
-        <button ion-button clear item-end (click)="openMap(route.path)">View Route</button>
+        {{ route.nombre | date }}, {{ route.coordenadas.length }} Puntos
+        <button ion-button clear item-end (click)="openMap(route.coordenadas)">Ver</button>
+        <button ion-button clear item-end (click)="deleteRoute(route.id)">Eliminar</button>
+
       </ion-item>
     </ion-list>
-    
+
   </div>
 </ion-content>

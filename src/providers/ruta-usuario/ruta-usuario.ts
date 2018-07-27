@@ -33,7 +33,7 @@ export class RutaUsuarioProvider {
       'Authorization': 'Bearer ' + token
     });
     return this.http.post(this.url,ruta,{headers:headers});
-    
+
   }
   deleteRutaUsuario(token,ruta_id){
     let params = {

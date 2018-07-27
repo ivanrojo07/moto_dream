@@ -27,7 +27,7 @@ export class ProductoFotosPage implements OnInit {
   public delete: boolean;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private productProvider:MyproductoProvider,
     private storage:Storage,
@@ -40,7 +40,7 @@ export class ProductoFotosPage implements OnInit {
     // console.log(this.producto);
     this.url = "http://byw.from-tn.com/motodream/storage/";
   }
-  
+
   ngOnInit(){
     this.fotos=[];
     this.showFotos(this.producto.id);

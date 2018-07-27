@@ -28,12 +28,12 @@ export class RutasMapPage {
   public isTracking;
   public trackedRoute;
   public positionSubscription: Subscription;
-  public previousTracks;
+
   public tracking;
 
 
-  constructor(  
-    public navCtrl: NavController, 
+  constructor(
+    public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrl: ViewController,
     private plt: Platform,
@@ -45,31 +45,15 @@ export class RutasMapPage {
     this.isTracking = false;
     this.trackedRoute = [];
     this.tracking = this.navParams.get('tracking');
-    
-    this.previousTracks = [];
-    console.log(this.tracking);
+   console.log(this.tracking);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RutasMapPage');
     this.plt.ready().then(() => {
       this.initMap();
-      this.loadHistoricRoutes();
-      
     });
-    // if (this.tracking != null) {
-    //   this.showHistoryRoute(this.tracking)
-    // }
-  }
-  ionViewCanEnter() {
-    this.ionViewDidLoad();
-  }
-  loadHistoricRoutes() {
-    this.storage.get('routes').then(data => {
-      if (data) {
-        this.previousTracks = data;
-      }
-    });
+
   }
 
   initMap() {
@@ -101,12 +85,6 @@ export class RutasMapPage {
 
         building: true
       },
-
-
-      mapTypeControl: false,
-      streetViewControl: true,
-      fullscreenControl: false,
-
     };
 
     this.map = GoogleMaps.create(this.mapElement.nativeElement, mapOptions);
@@ -165,6 +143,8 @@ export class RutasMapPage {
         strokeOpacity: 1.0,
         strokeWeight: 3
       });
+      this.map.setCameraTarget(path[path.length-1]);
+      this.map.setCameraZoom(20);
 
       console.log(this.currentMapTrack);
     }
@@ -176,11 +156,6 @@ export class RutasMapPage {
         finished: new Date().getTime(),
         path: this.trackedRoute
       };
-      this.previousTracks.push(newRoute);
-      this.storage.set('routes', this.previousTracks);
-      this.storage.get('routes').then(val => {
-        console.log(val);
-      });
       this.storage.get('access_token').then(val=>{
         let token = JSON.parse(val);
         this.rutasProvider.setRutaUsuario(token,newRoute).subscribe(result=>{
