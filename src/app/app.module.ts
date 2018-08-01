@@ -60,6 +60,10 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { RutasPage } from '../pages/rutas/rutas';
 import { RutasMapPage } from '../pages/rutas-map/rutas-map';
 import { RutaUsuarioProvider } from '../providers/ruta-usuario/ruta-usuario';
+import { SMS } from '@ionic-native/sms';
+import { ContactoProvider } from '../providers/contacto/contacto';
+import { ContactosPage } from '../pages/contactos/contactos';
+import { ContactoFormPage } from '../pages/contacto-form/contacto-form';
 
 
 @NgModule({
@@ -93,6 +97,8 @@ import { RutaUsuarioProvider } from '../providers/ruta-usuario/ruta-usuario';
     HandbookPage,
     RutasPage,
     RutasMapPage,
+    ContactosPage,
+    ContactoFormPage,
   ],
   imports: [
     BrowserModule,
@@ -135,6 +141,8 @@ import { RutaUsuarioProvider } from '../providers/ruta-usuario/ruta-usuario';
     HandbookPage,
     RutasPage,
     RutasMapPage,
+    ContactosPage,
+    ContactoFormPage,
   ],
   providers: [
     StatusBar,
@@ -156,6 +164,8 @@ import { RutaUsuarioProvider } from '../providers/ruta-usuario/ruta-usuario';
     File,
     Geolocation,
     RutaUsuarioProvider,
+    SMS,
+    ContactoProvider,
   ]
 })
 export class AppModule {}

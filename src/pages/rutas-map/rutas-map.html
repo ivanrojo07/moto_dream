@@ -8,6 +8,18 @@
 
   <ion-navbar hideBackButton>
     <ion-title>Ruta</ion-title>
+    <ion-buttons left *ngIf="tracking == null">
+    
+      <button ion-button icon-left color="secondary" (click)="startTracking()" *ngIf="!isTracking">
+        <ion-icon name="locate"></ion-icon>
+        Iniciar Ruta
+      </button>
+      <button ion-button color="danger" icon-left (click)="stopTracking()" *ngIf="isTracking">
+        <ion-icon name="hand"></ion-icon>
+        Parar Ruta
+      </button>
+    
+    </ion-buttons>
     <ion-buttons end>
       <button ion-button icon-only end (click)="salir()">
         <ion-icon name="close"></ion-icon>
@@ -21,7 +33,7 @@
 <ion-content padding>
   <div #map id="map"></div>
 
-  <ion-buttons *ngIf="tracking == null">
+  <ion-buttons class="button" *ngIf="tracking == null">
 
     <button ion-button full icon-left (click)="startTracking()" *ngIf="!isTracking">
       <ion-icon name="locate"></ion-icon>

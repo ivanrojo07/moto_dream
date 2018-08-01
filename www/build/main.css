@@ -31025,13 +31025,17 @@ page-rutas ion-icon {
   color: #A07B13;
 }
 
+page-rutas-map .scroll-content {
+  padding: 0px !important;
+}
+
 page-rutas-map ion-icon {
   color: #A07B13;
 }
 
 page-rutas-map #map {
   width: 100% !important;
-  height: 90% !important;
+  height: 100% !important;
 }
 
 page-setting ion-content {

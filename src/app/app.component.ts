@@ -46,6 +46,7 @@ export class MyApp {
 
   
   loggedInPages: PageInterface[] = [
+    { title: 'Emergencias',component:EmergenciaPage},
     { title: 'Home', component: UserPage },
     // { title: 'List', component: ListPage },
     { title: 'MDtv', component: MDtvPage},
@@ -56,7 +57,6 @@ export class MyApp {
     { title: "Mis motos", component: MotosPage },
     { title: 'Mis productos', component: MyproductosPage},
     { title: 'Productos', component: ProductosPage },
-    { title: 'Emergencias',component:EmergenciaPage},
     { title: 'Rutas', component:RutasPage},
   ];
   loggedOutPages: PageInterface[] = [

@@ -1,9 +1,28 @@
 page-rutas-map {
+  .scroll-content {
+    padding: 0px !important;
+  }
+  // .button{
+  //   position: absolute;
+  // }
     ion-icon {
       color: #A07B13;
     }
+    // ion-content {
+    //   padding-top: 40px;
+    //   padding-bottom: 40px;
+    //   background-color: gray;
+    //   background: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png) !important;
+    //   background-position: center top, center center;
+    //   background-repeat: no-repeat;
+    //   background-attachment: absolute;
+    //   background-size: contain, cover;
+    //   background-color: #fff;
+    //   background-position-x: 50%;
+    // }
     #map {
       width: 100% !important;
-      height: 90% !important;
+      height: 100% !important;
+      // padding: -16px !important;
     }
 }

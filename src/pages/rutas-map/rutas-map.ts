@@ -4,8 +4,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { Storage } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 import { filter } from 'rxjs/operators';
-import { GoogleMaps, GoogleMapOptions, LatLng } from '@ionic-native/google-maps';
+import { GoogleMaps, GoogleMapOptions, LatLng, Environment } from '@ionic-native/google-maps';
 import { RutaUsuarioProvider } from '../../providers/providers';
+// import { Content } from '../../../node_modules/ionic-angular/umd/navigation/nav-interfaces';
 
 /**
  * Generated class for the RutasMapPage page.
@@ -28,7 +29,7 @@ export class RutasMapPage {
   public isTracking;
   public trackedRoute;
   public positionSubscription: Subscription;
-
+  public enviroment:any;
   public tracking;
 
 
@@ -54,6 +55,9 @@ export class RutasMapPage {
       this.initMap();
     });
 
+  }
+  ionViewCanEnter(){
+   this.ionViewDidLoad();
   }
 
   initMap() {
@@ -88,12 +92,15 @@ export class RutasMapPage {
     };
 
     this.map = GoogleMaps.create(this.mapElement.nativeElement, mapOptions);
+    // this.enviroment = new Environment();
+    // this.enviroment.setBackgroundColor('white');
     this.geolocation.getCurrentPosition().then((pos) => {
       console.log(pos);
       let latLng = new LatLng(pos.coords.latitude, pos.coords.longitude);
       console.log(latLng);
       this.map.setCameraZoom(16);
       this.map.setCameraTarget(latLng);
+      
     }).catch(error => {
       console.log('error tomando la locación', error);
     });
