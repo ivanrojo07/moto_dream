@@ -5,6 +5,7 @@ import { MyproductosPage } from './../pages/myproductos/myproductos';
 import { Camera } from '@ionic-native/camera';
 import { Network } from '@ionic-native/network';
 import { CallNumber } from '@ionic-native/call-number';
+import { SocialSharing } from "@ionic-native/social-sharing";
 
 
 import { ProductoFotosFormPage } from './../pages/producto-fotos-form/producto-fotos-form';
@@ -147,7 +148,14 @@ import { ContactoFormPage } from '../pages/contacto-form/contacto-form';
   providers: [
     StatusBar,
     Camera,
+    SMS,
     SplashScreen,
+    Network,
+    CallNumber,
+    FileTransfer,
+    File,
+    Geolocation,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsuarioProvider,
     TarjetaProvider,
@@ -155,16 +163,10 @@ import { ContactoFormPage } from '../pages/contacto-form/contacto-form';
     DomicilioFiscalProvider,
     MotoProvider,
     ProductoProvider,
-    Network,
-    CallNumber,
     MyproductoProvider,
     YoutubeVideoPlayer,
     HandbookProvider,
-    FileTransfer,
-    File,
-    Geolocation,
     RutaUsuarioProvider,
-    SMS,
     ContactoProvider,
   ]
 })

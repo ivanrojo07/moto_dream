@@ -7,12 +7,32 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ContactosPage</ion-title>
+    <ion-title>Contactos</ion-title>
+    <ion-buttons end>
+      <button ion-button color="light" round icon-end icon-only end (click)="openForm()">
+        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-item *ngFor="let contacto of contactos">
+    <ion-label>{{contacto.nombre}} | {{contacto.numero}} | {{!!contacto.principal ? 'P': '' }} {{!!contacto.averia ? 'A': '' }} {{!!contacto.robo
+      ? 'RE': '' }} {{!!contacto.accidente ? 'Ac': '' }}</ion-label>
+      <button ion-button icon-only clear item-end (click)="editar(contacto)">
+          <ion-icon ios="ios-create" md="md-create"></ion-icon>
+      </button>
+      <button ion-button icon-only clear item-end (click)="delete(contacto.id)">
+        <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+      </button>
+  </ion-item>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title><p class="footer">P = Contacto Principal | A = Contacto por Avería | RE = Contacto por Robo o extravio | Ac = Contacto Accidente</p></ion-title>
+  </ion-toolbar>
+</ion-footer>

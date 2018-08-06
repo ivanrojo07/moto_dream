@@ -31,14 +31,30 @@ export class ContactoFormPage {
     ) {
       this.edit = this.navParams.get('edit');
       console.log(this.edit);
-      if(this.edit == true){
+      if(this.edit){
         this.contacto = this.navParams.get('contacto');
+        console.log(this.contacto);
       }
       else{
+        if (this.navParams.get('firstcontact')){
+          this.contacto = {
+            id: '',
+            nombre: '',
+            numero: '',
+            principal: true,
+            averia:false,
+            accidente:false,
+            robo:false,
+          };
+        }
         this.contacto = {
           id:'',
           nombre:'',
-          numero:''
+          numero:'',
+          principal: false,
+          averia: false,
+          accidente: false,
+          robo: false,
         };
       }
       console.log(this.contacto);

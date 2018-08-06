@@ -30645,6 +30645,31 @@ page-about ion-icon {
   color: #A07B13;
 }
 
+page-contactos ion-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png);
+  background-position: center top, center center;
+  background-repeat: no-repeat;
+  background-attachment: absolute;
+  background-size: contain, cover;
+  background-color: #fff;
+  background-position-x: 50%;
+}
+
+page-contactos ion-icon {
+  color: #A07B13;
+}
+
+page-contactos ion-footer ion-toolbar ion-title p.footer {
+  white-space: pre-wrap !important;
+  padding: 0 12px !important;
+  font-size: 1.6rem !important;
+  font-weight: 500 !important;
+  color: #000660 !important;
+  word-wrap: break-word !important;
+}
+
 page-contrasena .bar-button {
   color: #fff;
 }

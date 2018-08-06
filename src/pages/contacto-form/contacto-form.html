@@ -23,8 +23,23 @@
     <ion-item>
       <ion-input type="tel" name="telefono" ngModel="{{contacto.numero}}" #telefono="ngModel" placeholder="Numero de telefono"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label>Contacto principal</ion-label>
+      <ion-toggle [(ngModel)]="contacto.principal" name="principal" #principal="ngModel"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contacto averia</ion-label>
+      <ion-toggle [(ngModel)]="contacto.averia" name="averia" #averia="ngModel"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contacto accidente</ion-label>
+      <ion-toggle [(ngModel)]="contacto.accidente" name="accidente" #accidente="ngModel"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contacto robo o extravio</ion-label>
+      <ion-toggle [(ngModel)]="contacto.robo" name="robo" #robo="ngModel"></ion-toggle>
+    </ion-item>
     <button ion-button color="primary" type="submit" block>Guardar domicilio</button>
-
   </form>
   <button ion-button color="light" (click)="regresar()" block>Cancelar</button>
 
