@@ -1,3 +1,4 @@
+import { ServiciosProvider } from './servicios/servicios';
 import { ContactoProvider } from './contacto/contacto';
 import { RutaUsuarioProvider } from './ruta-usuario/ruta-usuario';
 import { MyproductoProvider } from './myproducto/myproducto';
@@ -18,4 +19,5 @@ export {
     MyproductoProvider,
     RutaUsuarioProvider,
     ContactoProvider,
+    ServiciosProvider,
 }

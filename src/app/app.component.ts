@@ -134,9 +134,7 @@ export class MyApp {
         this.rootPage = UserPage;
         
         this._usuarioService.estaLogeado().then((hasLoggedIn) => {
-          this.enableMenu(hasLoggedIn == true);
-          console.log("logeado");
-          
+          this.enableMenu(hasLoggedIn == true);          
         });
         
       }

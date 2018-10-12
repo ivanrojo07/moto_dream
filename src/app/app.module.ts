@@ -25,7 +25,6 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -65,13 +64,13 @@ import { SMS } from '@ionic-native/sms';
 import { ContactoProvider } from '../providers/contacto/contacto';
 import { ContactosPage } from '../pages/contactos/contactos';
 import { ContactoFormPage } from '../pages/contacto-form/contacto-form';
+import { ServiciosProvider } from '../providers/servicios/servicios';
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     RegisterPage,
     LoginPage,
     UserPage,
@@ -115,7 +114,6 @@ import { ContactoFormPage } from '../pages/contacto-form/contacto-form';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     RegisterPage,
     LoginPage,
     UserPage,
@@ -168,6 +166,7 @@ import { ContactoFormPage } from '../pages/contacto-form/contacto-form';
     HandbookProvider,
     RutaUsuarioProvider,
     ContactoProvider,
+    ServiciosProvider,
   ]
 })
 export class AppModule {}
