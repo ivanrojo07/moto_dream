@@ -1,0 +1,49 @@
+page-servicio {
+    ion-icon {
+        color: #A07B13;
+    }
+    ion-content {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: gray;
+        background: url(../assets/imgs/principal.png), url(../assets/imgs/lineasamarillas.png);
+        background-position: center top, center center;
+        background-repeat: no-repeat;
+        background-attachment: absolute;
+        background-size: contain, cover;
+        background-color: #fff;
+        background-position-x: 50%;
+        .grid {
+            padding: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+        .header .col {
+        background-color:lightgrey;
+        }
+
+        .col {
+        border: solid 1px grey;
+        border-bottom-style: none;
+        border-right-style: none;
+        }
+
+        .col:last-child {
+        border-right: solid 1px grey;
+        }
+
+        .row:last-child .col {
+        border-bottom: solid 1px grey;
+        }
+    }
+}

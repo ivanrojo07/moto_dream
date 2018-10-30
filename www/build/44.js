@@ -1,14 +1,14 @@
 webpackJsonp([44],{
 
-/***/ 471:
+/***/ 479:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DomicilioEnvioPageModule", function() { return DomicilioEnvioPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MDtvPageModule", function() { return MDtvPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__domicilio_envio__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__m_dtv__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var DomicilioEnvioPageModule = /** @class */ (function () {
-    function DomicilioEnvioPageModule() {
+var MDtvPageModule = /** @class */ (function () {
+    function MDtvPageModule() {
     }
-    DomicilioEnvioPageModule = __decorate([
+    MDtvPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__domicilio_envio__["a" /* DomicilioEnvioPage */],
+                __WEBPACK_IMPORTED_MODULE_2__m_dtv__["a" /* MDtvPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__domicilio_envio__["a" /* DomicilioEnvioPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__m_dtv__["a" /* MDtvPage */]),
             ],
         })
-    ], DomicilioEnvioPageModule);
-    return DomicilioEnvioPageModule;
+    ], MDtvPageModule);
+    return MDtvPageModule;
 }());
 
-//# sourceMappingURL=domicilio-envio.module.js.map
+//# sourceMappingURL=m-dtv.module.js.map
 
 /***/ })
 

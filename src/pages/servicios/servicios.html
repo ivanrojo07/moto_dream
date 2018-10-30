@@ -1,0 +1,46 @@
+<!--
+  Generated template for the ServiciosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only class="menu">
+      <ion-icon md="md-menu" ios="ios-menu"></ion-icon>
+      <!-- <ion-icon></ion-icon> -->
+    </button>
+    <ion-title>Mis Servicios</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngIf="servicios.length == 0">
+    <ion-card-header>
+      Sin servicio
+    </ion-card-header>
+    <ion-card-content>
+      Esta moto no a tenido ningun servicio
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngFor="let servicio of servicios">
+    <ion-card-header>
+      {{ servicio.moto.marca }} {{ servicio.moto.modelo }} ° {{ servicio.updated_at | date:'mediumDate' }}
+    </ion-card-header>
+    <ion-card-content>
+      <p>Kilometros: {{servicio.moto.km}}</p> 
+      <p>Estado: {{servicio.estado}}</p>
+      <p>Detalle: {{servicio.detalle}}</p>
+      <p>Mano de obra: ${{servicio.costo_obra}}</p>
+      <p *ngIf="servicio.costo_revision != '0.00'">Revisiones: ${{servicio.costo_revision}}</p>
+      <p *ngIf="servicio.costo_refaccion != '0.00'">Refacciones: ${{servicio.costo_refaccion}}</p>
+      <p>Total: ${{servicio.total}}</p>
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col text-right>
+        <button ion-button clear color="dark" (click)="detailServicio(servicio.id)">Más Información</button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-content>

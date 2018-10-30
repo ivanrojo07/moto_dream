@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 475:
+/***/ 481:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MotoPageModule", function() { return MotoPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyproductosPageModule", function() { return MyproductosPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__moto__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__myproductos__ = __webpack_require__(157);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MotoPageModule = /** @class */ (function () {
-    function MotoPageModule() {
+var MyproductosPageModule = /** @class */ (function () {
+    function MyproductosPageModule() {
     }
-    MotoPageModule = __decorate([
+    MyproductosPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__moto__["a" /* MotoPage */],
+                __WEBPACK_IMPORTED_MODULE_2__myproductos__["a" /* MyproductosPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__moto__["a" /* MotoPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__myproductos__["a" /* MyproductosPage */]),
             ],
         })
-    ], MotoPageModule);
-    return MotoPageModule;
+    ], MyproductosPageModule);
+    return MyproductosPageModule;
 }());
 
-//# sourceMappingURL=moto.module.js.map
+//# sourceMappingURL=myproductos.module.js.map
 
 /***/ })
 

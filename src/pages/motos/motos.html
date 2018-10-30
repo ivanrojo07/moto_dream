@@ -44,6 +44,10 @@
       <p *ngIf="moto.km"><strong>Kilometros: {{moto.km}}</strong></p>
       <p *ngIf="moto.anio"><strong>Año: {{moto.anio}}</strong></p>
       <ion-buttons end>
+        <button ion-button color="light" round icon-only end (click)="showServicio(moto)">
+          <!-- Advanced: explicity set the icon for each platform -->
+          <ion-icon ios="ios-hammer" md="md-hammer"></ion-icon>
+        </button>
         <button ion-button color="light" round icon-only end (click)="showMoto(moto)">
           <!-- Advanced: explicity set the icon for each platform -->
           <ion-icon ios="ios-information-circle" md="md-information-circle"></ion-icon>

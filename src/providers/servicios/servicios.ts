@@ -14,7 +14,7 @@ export class ServiciosProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello ServiciosProvider Provider');
-    this.url = "http://byw.from-tn.com/motodream/api/servicios/";
+    this.url = "http://byw.from-tn.com/motodream/api/servicios";
 
   }
 
@@ -35,7 +35,7 @@ export class ServiciosProvider {
       'Accept': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return this.http.get(this.url+servicio_id, { headers: headers });
+    return this.http.get(this.url + `/${servicio_id}`, { headers: headers });
   }
 
   getMotoServicio(moto_id,token){
@@ -44,7 +44,7 @@ export class ServiciosProvider {
       'Accept': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return this.http.get(this.url+`moto/${moto_id}`, { headers: headers });
+    return this.http.get(this.url+`/moto/${moto_id}`, { headers: headers });
   }
 
 

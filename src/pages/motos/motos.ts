@@ -1,3 +1,4 @@
+import { ServiciosPage } from './../servicios/servicios';
 import { MotoFormPage } from './../moto-form/moto-form';
 import { MotoPage } from './../moto/moto';
 import { Component, OnInit } from '@angular/core';
@@ -75,6 +76,9 @@ export class MotosPage implements OnInit{
     this.navCtrl.push(MotoPage,{
       moto: moto
     });
+  }
+  showServicio(moto){
+    this.navCtrl.push(ServiciosPage,{moto_id:moto.id});
   }
   eliminarMoto(id){
     let alert = this.alertCtrl.create({

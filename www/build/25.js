@@ -1,14 +1,14 @@
-webpackJsonp([27],{
+webpackJsonp([25],{
 
-/***/ 489:
+/***/ 469:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TarjetaFormPageModule", function() { return TarjetaFormPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactoFormPageModule", function() { return ContactoFormPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tarjeta_form__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contacto_form__ = __webpack_require__(75);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,25 +18,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var TarjetaFormPageModule = /** @class */ (function () {
-    function TarjetaFormPageModule() {
+var ContactoFormPageModule = /** @class */ (function () {
+    function ContactoFormPageModule() {
     }
-    TarjetaFormPageModule = __decorate([
+    ContactoFormPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__tarjeta_form__["a" /* TarjetaFormPage */],
+                __WEBPACK_IMPORTED_MODULE_2__contacto_form__["a" /* ContactoFormPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tarjeta_form__["a" /* TarjetaFormPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__contacto_form__["a" /* ContactoFormPage */]),
             ],
         })
-    ], TarjetaFormPageModule);
-    return TarjetaFormPageModule;
+    ], ContactoFormPageModule);
+    return ContactoFormPageModule;
 }());
 
-//# sourceMappingURL=tarjeta-form.module.js.map
+//# sourceMappingURL=contacto-form.module.js.map
 
 /***/ })
 
 });
-//# sourceMappingURL=27.js.map
+//# sourceMappingURL=25.js.map

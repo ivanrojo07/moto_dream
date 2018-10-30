@@ -23,6 +23,7 @@ import { DisclaimerPage } from '../pages/disclaimer/disclaimer';
 import { MotosPage } from '../pages/motos/motos';
 import { Network } from '@ionic-native/network';
 import { MyproductosPage } from '../pages/myproductos/myproductos';
+import { ServiciosPage } from '../pages/servicios/servicios';
 
 
 
@@ -47,8 +48,8 @@ export class MyApp {
   
   loggedInPages: PageInterface[] = [
     { title: 'Emergencias',component:EmergenciaPage},
+    { title: 'Servicios', component: ServiciosPage },
     { title: 'Home', component: UserPage },
-    // { title: 'List', component: ListPage },
     { title: 'MDtv', component: MDtvPage},
     { title: 'Handbook', component: HandbookPage},
     { title: "Ajustes", component: SettingPage},
@@ -61,7 +62,6 @@ export class MyApp {
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Home', component: HomePage },
-    // { title: 'List', component: ListPage },
     { title: 'Registrate', component:RegisterPage},
     { title: 'Inicia sesión', component:LoginPage},
     { title: 'Acerca de nosotros', component: AboutPage},
@@ -77,7 +77,7 @@ export class MyApp {
   constructor(
     
     public platform: Platform, 
-    public statusBar: StatusBar, 
+    // public statusBar: StatusBar, 
     public splashScreen: SplashScreen, 
     private storage: Storage, 
     private _usuarioService: UsuarioProvider,
@@ -173,7 +173,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
+      // this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }

@@ -1,14 +1,14 @@
 webpackJsonp([39],{
 
-/***/ 473:
+/***/ 494:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MDtvPageModule", function() { return MDtvPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductoFotosFormPageModule", function() { return ProductoFotosFormPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__m_dtv__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__producto_fotos_form__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MDtvPageModule = /** @class */ (function () {
-    function MDtvPageModule() {
+var ProductoFotosFormPageModule = /** @class */ (function () {
+    function ProductoFotosFormPageModule() {
     }
-    MDtvPageModule = __decorate([
+    ProductoFotosFormPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__m_dtv__["a" /* MDtvPage */],
+                __WEBPACK_IMPORTED_MODULE_2__producto_fotos_form__["a" /* ProductoFotosFormPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__m_dtv__["a" /* MDtvPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__producto_fotos_form__["a" /* ProductoFotosFormPage */]),
             ],
         })
-    ], MDtvPageModule);
-    return MDtvPageModule;
+    ], ProductoFotosFormPageModule);
+    return ProductoFotosFormPageModule;
 }());
 
-//# sourceMappingURL=m-dtv.module.js.map
+//# sourceMappingURL=producto-fotos-form.module.js.map
 
 /***/ })
 

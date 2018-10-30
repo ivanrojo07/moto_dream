@@ -1,14 +1,14 @@
 webpackJsonp([20],{
 
-/***/ 468:
+/***/ 474:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DomfiscalFormPageModule", function() { return DomfiscalFormPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DomicilioFiscalPageModule", function() { return DomicilioFiscalPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__domfiscal_form__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__domicilio_fiscal__ = __webpack_require__(150);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var DomfiscalFormPageModule = /** @class */ (function () {
-    function DomfiscalFormPageModule() {
+var DomicilioFiscalPageModule = /** @class */ (function () {
+    function DomicilioFiscalPageModule() {
     }
-    DomfiscalFormPageModule = __decorate([
+    DomicilioFiscalPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__domfiscal_form__["a" /* DomfiscalFormPage */],
+                __WEBPACK_IMPORTED_MODULE_2__domicilio_fiscal__["a" /* DomicilioFiscalPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__domfiscal_form__["a" /* DomfiscalFormPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__domicilio_fiscal__["a" /* DomicilioFiscalPage */]),
             ],
         })
-    ], DomfiscalFormPageModule);
-    return DomfiscalFormPageModule;
+    ], DomicilioFiscalPageModule);
+    return DomicilioFiscalPageModule;
 }());
 
-//# sourceMappingURL=domfiscal-form.module.js.map
+//# sourceMappingURL=domicilio-fiscal.module.js.map
 
 /***/ })
 

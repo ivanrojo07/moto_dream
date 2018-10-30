@@ -6,6 +6,9 @@ import { Camera } from '@ionic-native/camera';
 import { Network } from '@ionic-native/network';
 import { CallNumber } from '@ionic-native/call-number';
 import { SocialSharing } from "@ionic-native/social-sharing";
+import { BarcodeScanner } from "@ionic-native/barcode-scanner";
+
+import { NgxQRCodeModule } from "ngx-qrcode2";
 
 
 import { ProductoFotosFormPage } from './../pages/producto-fotos-form/producto-fotos-form';
@@ -65,6 +68,8 @@ import { ContactoProvider } from '../providers/contacto/contacto';
 import { ContactosPage } from '../pages/contactos/contactos';
 import { ContactoFormPage } from '../pages/contacto-form/contacto-form';
 import { ServiciosProvider } from '../providers/servicios/servicios';
+import { ServiciosPage } from '../pages/servicios/servicios';
+import { ServicioPage } from '../pages/servicio/servicio';
 
 
 @NgModule({
@@ -78,7 +83,7 @@ import { ServiciosProvider } from '../providers/servicios/servicios';
     ContrasenaPage,
     TarjetaPage,
     TarjetaFormPage,
-    AboutPage, 
+    AboutPage,
     DisclaimerPage,
     DomicilioEnvioPage,
     DomenvioFormPage,
@@ -99,6 +104,8 @@ import { ServiciosProvider } from '../providers/servicios/servicios';
     RutasMapPage,
     ContactosPage,
     ContactoFormPage,
+    ServiciosPage,
+    ServicioPage
   ],
   imports: [
     BrowserModule,
@@ -109,6 +116,7 @@ import { ServiciosProvider } from '../providers/servicios/servicios';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     IonicImageViewerModule,
+    NgxQRCodeModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -142,6 +150,8 @@ import { ServiciosProvider } from '../providers/servicios/servicios';
     RutasMapPage,
     ContactosPage,
     ContactoFormPage,
+    ServiciosPage,
+    ServicioPage
   ],
   providers: [
     StatusBar,
@@ -154,7 +164,8 @@ import { ServiciosProvider } from '../providers/servicios/servicios';
     File,
     Geolocation,
     SocialSharing,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BarcodeScanner,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     UsuarioProvider,
     TarjetaProvider,
     DomicilioEnvioProvider,
@@ -166,7 +177,7 @@ import { ServiciosProvider } from '../providers/servicios/servicios';
     HandbookProvider,
     RutaUsuarioProvider,
     ContactoProvider,
-    ServiciosProvider,
+    ServiciosProvider
   ]
 })
 export class AppModule {}

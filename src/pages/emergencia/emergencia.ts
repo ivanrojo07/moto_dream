@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController } from 'ionic-angular';
 import { SMS } from '@ionic-native/sms';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 /**
  * Generated class for the EmergenciaPage page.
@@ -26,6 +27,10 @@ export class EmergenciaPage {
   public contactos: any[];
   public smsFlag:boolean;
 
+  public qrData: any[];
+  public createdCode: any;
+  public scannedCode: any;
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private callNumber:CallNumber,
@@ -36,9 +41,13 @@ export class EmergenciaPage {
     private sms : SMS,
     private socialSharing: SocialSharing,
     public loadingCtrl: LoadingController,
+    private barcodeScanner: BarcodeScanner,
   ) {
     // this.contRobo = [];
     this.sms.hasPermission().then(val=>{console.log('permiso',val)});
+    this.qrData = null;
+    this.createdCode = null;
+    this.scannedCode = null;
   }
 
   ionViewDidLoad() {
@@ -128,6 +137,80 @@ export class EmergenciaPage {
     this.callNumber.callNumber("911", true)
       .then(res => console.log('Launched dialer!', res))
       .catch(err => console.log('Error launching dialer', err));
+  }
+
+  public getCodeRobo(){
+    let contactosRobo = [];
+    this.contactos.forEach(contacto => {
+      if (contacto['principal']) {
+        contactosRobo.push(contacto);
+      }
+      if (!contacto['principal'] && contacto['robo']) {
+        contactosRobo.push(contacto);
+      }
+    });
+    this.createdCode = `${JSON.stringify(contactosRobo)}`;
+    console.log(this.createdCode);
+
+  }
+
+  /**
+   * scanCode
+   */
+  public scanCode() {
+    this.barcodeScanner.scan().then(barcodeData=>{
+      console.log(barcodeData);
+      // this.scannedCode = ;
+      this.scannedCode = JSON.parse(barcodeData.text);
+      console.log(this.scannedCode);
+    },err=>{
+      // console.log('error barcode: ',err);
+      // this.scannedCode = 'error '+err;
+    })
+  }
+
+  /**
+   * descargarQR
+   */
+  public descargarQR() {
+    let dataurl = document.getElementById("qr").innerHTML;
+    // console.log(dataurl);
+    let myRegexp = /(?:^|\s)src=(.*?)(?:\s|$)/g;
+    console.log('dataurl',dataurl);
+    let match = myRegexp.exec(dataurl);
+    console.log('match',match);
+    let match1 = match[1].replace('></div>', '');
+    // console.log(match1);
+    let ImageURL = match1;
+    console.log("ImageURL", ImageURL);
+
+    let block = ImageURL.split(";");
+
+    let contentType = block[0].split(":")[1];
+
+    let realData = block[1].split(",")[1];
+
+    let file = this.dataURLtoFile(JSON.parse(ImageURL), "qr.png");
+    return file;
+  }
+
+  /**
+   * dataURLtoFile
+   */
+  public dataURLtoFile(dataurl,filename) {
+    var arr = dataurl.split(',');
+    console.log(arr); 
+    var mime = arr[0].match(/:(.*?);/)[1]
+
+    var bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+
+    while (n--) {
+
+      u8arr[n] = bstr.charCodeAt(n);
+
+    }
+
+    return new File([u8arr], filename, { type: mime });
   }
 
 }

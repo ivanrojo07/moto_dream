@@ -31,5 +31,21 @@
   <button ion-button round color="danger" full (click)="averia()">Averia</button>
   <button ion-button round color="danger" full (click)="accidente()">Accidente</button>
   <button ion-button round color="danger" full (click)="openPage()">Mis contactos de emergencia</button>
-
+  <button ion-button round color="danger" full (click)="getCodeRobo()">Crear codigo robo</button>
+  <button ion-button round color="danger" full (click)="descargarQR()">Descargar QR</button>
+  <button ion-button full icon-left (click)="scanCode()" color="secondary">
+    <ion-icon name="qr-scanner"></ion-icon>Scanear Código
+  </button>
+  <ion-card *ngIf="createdCode">
+    <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+    <ion-card-content>
+      <p>Value: {{ createdCode }}</p>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      Result from Scan: {{ scannedCode }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
